@@ -1,11 +1,13 @@
 import torch
 
-from text import symbols
-
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # sets device for model and PyTorch tensors
 
-meta_file = 'data/LJSpeech-1.1/metadata.csv'
-wave_folder = 'data/LJSpeech-1.1/wavs'
+meta_file = 'data/BZNSYP/ProsodyLabeling/000001-010000.txt'
+wave_folder = 'data/BZNSYP/Wave'
+vacab_file = 'data/vacab.json'
+
+num_train = 9900
+num_valid = 100
 
 ################################
 # Experiment Parameters        #
@@ -21,8 +23,8 @@ distributed_run = False
 # Data Parameters             #
 ################################
 load_mel_from_disk = False,
-training_files = 'filelists/ljs_audio_text_train_filelist.txt'
-validation_files = 'filelists/ljs_audio_text_val_filelist.txt'
+training_files = 'filelists/bznsyp_audio_text_train_filelist.txt'
+validation_files = 'filelists/bznsyp_audio_text_valid_filelist.txt'
 text_cleaners = ['english_cleaners']
 
 ################################
@@ -40,7 +42,7 @@ mel_fmax = 8000.0
 ################################
 # Model Parameters             #
 ################################
-n_symbols = len(symbols)
+n_symbols = 4143
 symbols_embedding_dim = 512
 
 # Encoder parameters

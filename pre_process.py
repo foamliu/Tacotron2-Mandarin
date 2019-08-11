@@ -1,52 +1,41 @@
-import os
-import pickle
+import json
+import random
 
-from tqdm import tqdm
-
-from config import wav_folder, tran_file, pickle_file
-from utils import ensure_folder
+from config import meta_file, vacab_file
 
 
-def get_data(split):
-    print('getting {} data...'.format(split))
-
-    global VOCAB
-
-    with open(tran_file, 'r', encoding='utf-8') as file:
+def process_data():
+    with open(meta_file, 'r', encoding='utf-8') as file:
         lines = file.readlines()
 
-    tran_dict = dict()
-    for line in lines:
-        tokens = line.split()
-        key = tokens[0]
-        trn = ''.join(tokens[1:])
-        tran_dict[key] = trn
-
     samples = []
+    for i, line in enumerate(lines):
+        if i % 2 == 0:
+            tokens = line.split()
+            audiopath = 'data/BZNSYP/Wave/{}.wav'.format(tokens[0])
+            text = tokens[1].replace('#1', '').replace('#2', '').replace('#3', '').replace('#4', '').strip()
+            for token in text:
+                build_vocab(token)
+            samples.append('{}|{}\n'.format(audiopath, text))
 
-    folder = os.path.join(wav_folder, split)
-    ensure_folder(folder)
-    dirs = [os.path.join(folder, d) for d in os.listdir(folder) if os.path.isdir(os.path.join(folder, d))]
-    for dir in tqdm(dirs):
-        files = [f for f in os.listdir(dir) if f.endswith('.wav')]
+    valid_ids = random.sample(range(len(samples)), 100)
+    train = []
+    valid = []
+    for id in range(len(samples)):
+        sample = samples[id]
+        if id in valid_ids:
+            valid.append(sample)
+        else:
+            train.append(sample)
 
-        for f in files:
-            wave = os.path.join(dir, f)
+    print(samples)
+    with open('filelists/bznsyp_audio_text_train_filelist.txt', 'w', encoding='utf-8') as file:
+        file.writelines(train)
+    with open('filelists/bznsyp_audio_text_valid_filelist.txt', 'w', encoding='utf-8') as file:
+        file.writelines(valid)
 
-            key = f.split('.')[0]
-            if key in tran_dict:
-                trn = tran_dict[key]
-                trn = list(trn.strip())
-
-                for token in trn:
-                    build_vocab(token)
-
-                trn = [VOCAB[token] for token in trn]
-
-                samples.append({'trn': trn, 'wave': wave})
-
-    print('split: {}, num_files: {}'.format(split, len(samples)))
-    return samples
+    print('num_train: ' + str(len(train)))
+    print('num_valid: ' + str(len(valid)))
 
 
 def build_vocab(token):
@@ -58,20 +47,16 @@ def build_vocab(token):
 
 
 if __name__ == "__main__":
-    VOCAB = {'<sos>': 0, '<eos>': 1}
-    IVOCAB = {0: '<sos>', 1: '<eos>'}
+    VOCAB = {}
+    IVOCAB = {}
+
+    process_data()
 
     data = dict()
     data['VOCAB'] = VOCAB
     data['IVOCAB'] = IVOCAB
-    data['train'] = get_data('train')
-    data['dev'] = get_data('dev')
-    data['test'] = get_data('test')
 
-    with open(pickle_file, 'wb') as file:
-        pickle.dump(data, file)
+    with open(vacab_file, 'w', encoding='utf-8') as file:
+        json.dump(data, file, indent=4, ensure_ascii=False)
 
-    print('num_train: ' + str(len(data['train'])))
-    print('num_dev: ' + str(len(data['dev'])))
-    print('num_test: ' + str(len(data['test'])))
     print('vocab_size: ' + str(len(data['VOCAB'])))

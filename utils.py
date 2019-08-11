@@ -194,5 +194,16 @@ def to_gpu(x):
     return torch.autograd.Variable(x)
 
 
+import json
+from config import vacab_file
+
+with open(vacab_file, 'r') as file:
+    data = json.load(file)
+
+VOCAB = data['VOCAB']
+IVOCAB = data['IVOCAB']
+
+
 def text_to_sequence(text):
-    return None
+    result = [VOCAB[ch] for ch in text]
+    return result
