@@ -3,7 +3,6 @@ BEST_checkpoint.tar
 __pycache__/
 bak/
 checkpoint.tar
-data/
 runs/
 text/
 waveglow_256channels.pt
