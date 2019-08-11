@@ -4,7 +4,7 @@ A PyTorch implementation of Tacotron2, described in [Natural TTS Synthesis By Co
 
 ## Dataset
 
-[LJ Speech Dataset](https://keithito.com/LJ-Speech-Dataset/)
+[BZNSYP Dataset](https://www.data-baker.com/open_source.html)
 
 ## Dependency
 
