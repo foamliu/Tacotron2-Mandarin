@@ -197,7 +197,7 @@ def to_gpu(x):
 import json
 from config import vacab_file
 
-with open(vacab_file, 'r') as file:
+with open(vacab_file, 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 VOCAB = data['VOCAB']
