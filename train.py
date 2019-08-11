@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from tensorboardX import SummaryWriter
-# from torch import nn
+from torch import nn
 from tqdm import tqdm
 
 import config
@@ -25,8 +25,8 @@ def train_net(args):
     if checkpoint is None:
         # model
         model = Tacotron2(config)
-        print(model)
-        # model = nn.DataParallel(model)
+        # print(model)
+        model = nn.DataParallel(model)
 
         # optimizer
         optimizer = Tacotron2Optimizer(

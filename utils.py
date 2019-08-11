@@ -82,7 +82,7 @@ def parse_args():
     parser.add_argument('--epochs', default=500, type=int)
     parser.add_argument('--max_norm', default=1, type=float, help='Gradient norm threshold to clip')
     # minibatch
-    parser.add_argument('--batch_size', default=32, type=int)
+    parser.add_argument('--batch_size', default=64, type=int)
     parser.add_argument('--num-workers', default=4, type=int,
                         help='Number of workers to generate minibatch')
     # logging
@@ -182,7 +182,7 @@ def load_wav_to_torch(full_path):
 
 def load_filepaths_and_text(filename, split="|"):
     with open(filename, encoding='utf-8') as f:
-        filepaths_and_text = [line.strip().replace('DUMMY', wave_folder).split(split) for line in f]
+        filepaths_and_text = [line.strip().split(split) for line in f]
     return filepaths_and_text
 
 
