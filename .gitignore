@@ -1,0 +1,10 @@
+.idea
+BEST_checkpoint.tar
+__pycache__/
+bak/
+checkpoint.tar
+data/
+models/
+runs/
+text/
+waveglow_256channels.pt
