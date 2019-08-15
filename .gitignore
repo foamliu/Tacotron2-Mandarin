@@ -6,3 +6,5 @@ checkpoint.tar
 runs/
 text/
 waveglow_256channels.pt
+nohup.out
+data
