@@ -1,4 +1,3 @@
-rarfile
 librosa
 tensorboardX
 soundfile
