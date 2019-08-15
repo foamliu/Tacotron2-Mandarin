@@ -5,7 +5,7 @@ import torch
 
 from config import sampling_rate
 from models.layers import STFT
-from text import text_to_sequence
+from utils import text_to_sequence
 
 
 class Denoiser(torch.nn.Module):
@@ -64,8 +64,8 @@ if __name__ == '__main__':
         k.float()
     denoiser = Denoiser(waveglow)
 
-    text = "I like deep learning. Jesus is coming, look busy!"
-    sequence = np.array(text_to_sequence(text, ['english_cleaners']))[None, :]
+    text = "必须树立公共交通优先发展的理念"
+    sequence = np.array(text_to_sequence(text))
     sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
 
     mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
