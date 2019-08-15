@@ -65,7 +65,7 @@ if __name__ == '__main__':
     denoiser = Denoiser(waveglow)
 
     text = "必须树立公共交通优先发展的理念"
-    sequence = np.array(text_to_sequence(text))
+    sequence = np.array(text_to_sequence(text))[None, :]
     sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
 
     mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
