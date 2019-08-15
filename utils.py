@@ -4,9 +4,8 @@ import logging
 import librosa
 import numpy as np
 import torch
-from scipy.io.wavfile import read
 
-from config import wave_folder
+from config import sampling_rate
 
 
 def clip_gradient(optimizer, grad_clip):
@@ -176,8 +175,9 @@ def get_mask_from_lengths(lengths):
 
 
 def load_wav_to_torch(full_path):
-    sampling_rate, data = read(full_path)
-    return torch.FloatTensor(data.astype(np.float32)), sampling_rate
+    # sampling_rate, data = read(full_path)
+    y, sr = librosa.core.load(full_path, sampling_rate, mono=True)
+    return torch.FloatTensor(y.astype(np.float32)), sr
 
 
 def load_filepaths_and_text(filename, split="|"):
