@@ -33,4 +33,4 @@ Generate mel-spectrogram for text "Waveglow is really awesome!"
 ```bash
 $ python demo.py
 ```
-![image](https://github.com/foamliu/Tacotron2/raw/master/images/mel_spec.jpg)
+![image](https://github.com/foamliu/Tacotron2-CN/raw/master/images/mel_spec.jpg)
