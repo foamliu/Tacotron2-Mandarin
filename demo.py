@@ -5,7 +5,7 @@ import torch
 
 from config import sampling_rate
 from models.layers import STFT
-from utils import text_to_sequence
+from utils import text_to_sequence, ensure_folder
 
 
 class Denoiser(torch.nn.Module):
@@ -72,6 +72,7 @@ if __name__ == '__main__':
     plot_data((mel_outputs.float().data.cpu().numpy()[0],
                mel_outputs_postnet.float().data.cpu().numpy()[0],
                alignments.float().data.cpu().numpy()[0].T))
+    ensure_folder('images')
     plt.savefig('images/mel_spec.jpg')
 
     mel_outputs_postnet = mel_outputs_postnet.type(torch.float16)
