@@ -15,6 +15,8 @@ def process_data():
             audiopath = 'data/BZNSYP/Wave/{}.wav'.format(tokens[0])
             text = lines[i+1].strip()
             for token in text:
+                if token in ('P', 'I', 'Y'):
+                    print(text)
                 build_vocab(token)
             samples.append('{}|{}\n'.format(audiopath, text))
 
@@ -28,7 +30,7 @@ def process_data():
         else:
             train.append(sample)
 
-    print(samples)
+    # print(samples)
     with open('filelists/bznsyp_audio_text_train_filelist.txt', 'w', encoding='utf-8') as file:
         file.writelines(train)
     with open('filelists/bznsyp_audio_text_valid_filelist.txt', 'w', encoding='utf-8') as file:
