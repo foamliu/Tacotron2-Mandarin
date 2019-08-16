@@ -13,7 +13,7 @@ def process_data():
         if i % 2 == 0:
             tokens = line.split()
             audiopath = 'data/BZNSYP/Wave/{}.wav'.format(tokens[0])
-            text = tokens[1].replace('#1', '').replace('#2', '').replace('#3', '').replace('#4', '').strip()
+            text = lines[i+1].strip()
             for token in text:
                 build_vocab(token)
             samples.append('{}|{}\n'.format(audiopath, text))
