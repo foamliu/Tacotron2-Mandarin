@@ -1,100 +1,100 @@
-data/BZNSYP/Wave/000072.wav|有关能否改控“串谋”。
-data/BZNSYP/Wave/000168.wav|我妈笑我傻，我妈笑我憨。
-data/BZNSYP/Wave/000343.wav|莽莽乡野，万水千山，铿锵承诺。
-data/BZNSYP/Wave/000493.wav|阴沉的天空，飘洒起毛毛细雨，似乎知晓此刻举国同哀。
-data/BZNSYP/Wave/000513.wav|在医学上，这类药物叫做“口服促进排卵药物”。
-data/BZNSYP/Wave/000591.wav|审判长当庭允许。
-data/BZNSYP/Wave/000605.wav|咱也别挑剔人家，但硬件服务和配套的东西该有哇。
-data/BZNSYP/Wave/000632.wav|玩玩乐器，玩玩游戏。
-data/BZNSYP/Wave/000802.wav|整场颠簸才算结束。
-data/BZNSYP/Wave/000901.wav|此外，就业困难人员还享有租赁商铺优惠。
-data/BZNSYP/Wave/001017.wav|刷票进闸后，就是安检口。
-data/BZNSYP/Wave/001207.wav|亲绿的乐队已经开始暖场。
-data/BZNSYP/Wave/001392.wav|报刊刊载一些短小精悍、见解独到的有关网络方方面面的言论。
-data/BZNSYP/Wave/001539.wav|我是说你要蓝颜干嘛呀。
-data/BZNSYP/Wave/001638.wav|张雯是个典型的上海嗲囡囡，脾气温和，懂生活，爱发嗲。
-data/BZNSYP/Wave/001671.wav|一曲黄梅戏唱罢，趁着曹爹爹换伴奏碟的间隙，记者与其攀谈。
-data/BZNSYP/Wave/002260.wav|你最近总是喜欢开我玩笑。
-data/BZNSYP/Wave/002264.wav|展出的陶鼎等涉案文物。
-data/BZNSYP/Wave/002278.wav|净者，不污不染也。
-data/BZNSYP/Wave/002491.wav|港岛南区深水湾望向南塱山的上空出现漏斗云。
-data/BZNSYP/Wave/002508.wav|法新社认为，央行这一举措短期内给欧元区提供了喘息空间。
-data/BZNSYP/Wave/002738.wav|驾驶员纳闷，他按喇叭没有错。
-data/BZNSYP/Wave/002792.wav|戴眼罩出场的周秀娜教参赛者来个败犬大变身。
-data/BZNSYP/Wave/002865.wav|这写的什么破玩意呀！屁大个事，你也要发个帖子！
-data/BZNSYP/Wave/002901.wav|美少女为您服务。
-data/BZNSYP/Wave/003155.wav|考古发现“疑似烧土”。
-data/BZNSYP/Wave/003177.wav|林莉也以高贵打扮出席活动。
-data/BZNSYP/Wave/003241.wav|公司招聘，应聘者要填表写自己的基本信息。
-data/BZNSYP/Wave/003252.wav|南非法律允许一夫多妻制。
-data/BZNSYP/Wave/003293.wav|像巩新亮都是自己修图。
-data/BZNSYP/Wave/003315.wav|命悬一线的危难关头，姑娘们斗志爆发。
-data/BZNSYP/Wave/003411.wav|临近天黑，不打算空手而归的他咬咬牙关买了一块歙砚毛料。
-data/BZNSYP/Wave/003445.wav|图为工作人员在编织毛线娃娃。
-data/BZNSYP/Wave/003461.wav|大家都携儿带女，朝西边的县城方向跑。
-data/BZNSYP/Wave/003591.wav|同时，由灭火组出水枪进行控火。
-data/BZNSYP/Wave/003628.wav|旧坟翻新后变豪华。
-data/BZNSYP/Wave/003923.wav|我在你心里应该永远十八岁。
-data/BZNSYP/Wave/003982.wav|直到这时，伍坦感觉车辆颠簸实在有点大了。
-data/BZNSYP/Wave/004155.wav|而这则姚晨牵着小毛驴的广告也为赶集快速提高了知名度。
-data/BZNSYP/Wave/004250.wav|这是由台湾镂空书法名家詹秀蓉书写的金箔镂空作品。
-data/BZNSYP/Wave/004390.wav|供水设施冻坏引发跑水，影响到用户的正常用水。
-data/BZNSYP/Wave/004664.wav|你说这些好无聊哦。
-data/BZNSYP/Wave/004718.wav|扯美国阿桑奇担心，引渡至瑞典后，最终可能被移交给美国。
-data/BZNSYP/Wave/004748.wav|钟丽缇主动搂着型男，俨如一对新婚夫妻，非常恩爱。
-data/BZNSYP/Wave/004780.wav|可是，种种“隐性福利”却五花八门、愈演愈烈。
-data/BZNSYP/Wave/004788.wav|肮脏的加工病死鸡作坊。
-data/BZNSYP/Wave/004817.wav|千年珍藏，一朝损毁。
-data/BZNSYP/Wave/004927.wav|话一出口就懊悔，这摆明是对谢景渊和饼干的看不起。
-data/BZNSYP/Wave/004967.wav|南开永远年轻，她的学生也都充满活力。
-data/BZNSYP/Wave/005056.wav|他们将对留样、召回的产品、包装袋等进行抽样检测。
-data/BZNSYP/Wave/005082.wav|每涂完一层，他总要休息上一两分钟，喘口气。
-data/BZNSYP/Wave/005163.wav|目前杨晓霞的病情已明显好转，感染得到控制。
-data/BZNSYP/Wave/005275.wav|本是很单纯的四片嘴唇碰一下，不足以说明什么。
-data/BZNSYP/Wave/005314.wav|祁海认为，与其咬文嚼字还不如为农民工做些实事。
-data/BZNSYP/Wave/005424.wav|孙虎把李强说得云里雾里。
-data/BZNSYP/Wave/005441.wav|除全场唯一的两双外，他还贡献了两次扣篮、一次助攻和一次抢断。
-data/BZNSYP/Wave/005442.wav|加快完善技术标准体系和行业准入管理。
-data/BZNSYP/Wave/005472.wav|对于我们来说，走传统老路可能更危险。
-data/BZNSYP/Wave/005513.wav|在这种形势下，美国可以洒水防止地区关系烤焦。
-data/BZNSYP/Wave/005665.wav|楼都摇晃了一下。
-data/BZNSYP/Wave/005690.wav|同时，还将会有影视圈的多年好友们为沙宝亮捧场助阵。
-data/BZNSYP/Wave/005703.wav|今天外面的天气挺冷的，但一进校园，就感觉暖暖的。
-data/BZNSYP/Wave/005845.wav|有什么好争的，找保险公司啊。
-data/BZNSYP/Wave/006073.wav|舒格洛夫滑雪场是缅因州最大的滑雪场。
-data/BZNSYP/Wave/006117.wav|倒数第三封让人眼前一亮，它来自首都的鲁迅文学院。
-data/BZNSYP/Wave/006124.wav|哈里王子可能要为自己的“一夜荒唐”付出代价。
-data/BZNSYP/Wave/006131.wav|出于职业敏感，付守国感觉事态有些不妙。
-data/BZNSYP/Wave/006256.wav|她自然也就没有支付当初约定的抚养费了。
-data/BZNSYP/Wave/006660.wav|千古虐恋，我劝他准备好纸巾再鼓足勇气打开。
-data/BZNSYP/Wave/006664.wav|这时，胡某屡屡催她还钱。
-data/BZNSYP/Wave/006692.wav|记者问蜗牛：当时事故是怎样发生的？
-data/BZNSYP/Wave/007064.wav|一路上水流湍急、险滩众多。
-data/BZNSYP/Wave/007117.wav|肖聪斜倚在病床上，对记者的提出的问题麻木地眨着眼睛。
-data/BZNSYP/Wave/007286.wav|传媒大亨默多克。
-data/BZNSYP/Wave/007486.wav|关键在于维护稳定和推进合作。
-data/BZNSYP/Wave/007813.wav|后来隆尧那个事出了以后，我不方便再去。
-data/BZNSYP/Wave/007820.wav|我是青蛙，不用冬眠的。
-data/BZNSYP/Wave/007988.wav|昨天，前门部分商铺打出超低价烤鸭招牌。
-data/BZNSYP/Wave/007995.wav|他们翻开了新中国屯垦史上崭新的一页。
-data/BZNSYP/Wave/008601.wav|图片、产品介绍把整个展览大厅装点成一个缤纷的世界。
-data/BZNSYP/Wave/008653.wav|我怕他们互相吵醒对方。
-data/BZNSYP/Wave/008727.wav|国企利润也在下降。
-data/BZNSYP/Wave/008828.wav|应采儿听了记者的转述后，颇为惊愕。
-data/BZNSYP/Wave/008831.wav|随后两人举起木槌，将婚戒砸碎。
-data/BZNSYP/Wave/008892.wav|昨日，消防员察看火场。
-data/BZNSYP/Wave/009029.wav|但是家暴哇，她也有女的打男的的时候。
-data/BZNSYP/Wave/009049.wav|生孩子也很累啊，不要在意是谁的了，好吗？
-data/BZNSYP/Wave/009100.wav|科普活动结束后，精选出版了“人文之窗”一书，受到广大读者的欢迎。
-data/BZNSYP/Wave/009244.wav|就是故意摆弄，是故意冤枉。
-data/BZNSYP/Wave/009252.wav|上海的湖泊大多沾染了上海人的小气和狭隘。
-data/BZNSYP/Wave/009303.wav|前天娜娜因跳楼后伤势过重，已不治身亡。
-data/BZNSYP/Wave/009319.wav|碧塔塔瓦巨蜥有特殊的体色标记和性器官。
-data/BZNSYP/Wave/009333.wav|分娩池像个大浴缸，有坐垫脚垫，两侧还有把手。
-data/BZNSYP/Wave/009369.wav|几年之后，那个门槛竟然被我们弟兄两个踏凹下去一块。
-data/BZNSYP/Wave/009627.wav|这是一个生意盎然的春日，生命的奇迹不断被创造。
-data/BZNSYP/Wave/009802.wav|万一睡着时屋子就被放火烧了呢？
-data/BZNSYP/Wave/009806.wav|观众总会有新宠，不复念旧人。
-data/BZNSYP/Wave/009860.wav|红光路上的秦阿旁宫景区，一度让人们认为“这里就是阿旁宫”。
-data/BZNSYP/Wave/009867.wav|收费年限分别持续至二零三二年及二零四零年。
-data/BZNSYP/Wave/009941.wav|习近平说，中斯两国人民传统友谊深厚。
+data/BZNSYP/Wave/000085.wav|xian4 zai4 shi4 daor4 yue4 zou3 yue4 kuan1 ren2 qi4 yue4 gao3 yue4 wang4
+data/BZNSYP/Wave/000144.wav|tan2 ta3 wei2 he2 an1 nan2 bei4 ren4 ming4 wei2 zong2 tong3 gu4 wen4
+data/BZNSYP/Wave/000198.wav|lin2 zu3 lian4 ren4 wu1 kan3 cun1 dang2 zong3 zhi1 shu1 ji4
+data/BZNSYP/Wave/000205.wav|jiang3 zuo5 hao3 duo1 hao3 shi2 zai4 kai2 ye3
+data/BZNSYP/Wave/000299.wav|you4 cheng1 ka1 la3 kun1 lun2 gong1 lu4
+data/BZNSYP/Wave/000334.wav|min2 yi3 shi2 wei2 tian1 liang2 jia4 nai2 bai3 jia4 zhi1 ji1
+data/BZNSYP/Wave/000367.wav|jiao3 xia4 de4 tu3 di4 wei1 wei1 zhen4 chan4 ren2 men5 qiao2 shou2 yang3 wang4
+data/BZNSYP/Wave/000418.wav|zhi3 chuan1 le5 yi4 tiao2 nei4 ku4 you3 mu4 you3 a5
+data/BZNSYP/Wave/000441.wav|dang1 shi2 zhe4 sou1 you2 lun2 zheng4 xiang4 yi4 sou1 nuo2 wei1 huo4 lun2 chuan2 song4 you2 liao4
+data/BZNSYP/Wave/000870.wav|zan2 men5 he2 bi4 zhi3 wei4 zan2 yi4 jia1 de5 er2 nv3 qian1 chang2 gua4 du4
+data/BZNSYP/Wave/001217.wav|xin1 he2 zha2 qiao2 qun2 zhong1 bao1 kuo4 zhong1 zha2 ma2 ci2 zha2 bei3 zha2 xia4 lu2 zha2 si4 ge4 zha2
+data/BZNSYP/Wave/001257.wav|nuo2 wei1 nan2 zi3 ba1 lei2 ke4 zai4 duan4 bi4 shang1 kou3 shang4 wen2 hai3 tun2 tou2
+data/BZNSYP/Wave/001504.wav|tu3 dou4 bi4 jin3 shuang1 yan2 xu3 yuan4 ba4 ba5 wen4 xu3 le5 shen2 me5 yuan4 tu3 dou4 shuo1 xu3 de5 yuan4 shi4 ma3 shang4 chi1 dan4 gao1
+data/BZNSYP/Wave/001509.wav|er2 si1 you3 hua4 ze2 ke2 yi2 shuai3 diao4 zhe4 xie1 ma2 fan5
+data/BZNSYP/Wave/001599.wav|chun1 jie2 lv2 xing2 ye3 shou4 huan1 ying2
+data/BZNSYP/Wave/001607.wav|xian3 ran2 er4 shou3 che1 ye4 wu4 he2 zu1 lin4 ye4 wu4 shi4 mi4 qie4 xiang1 guan1 de5
+data/BZNSYP/Wave/001617.wav|fen1 san4 si1 ji1 zhu4 yi4 li4 wa5
+data/BZNSYP/Wave/001646.wav|yuan2 li4 dai4 yan2 hong2 shi2 zi4 hui2 re3 zheng1 yi4
+data/BZNSYP/Wave/001647.wav|wang2 xue2 yuan2 nao3 dai4 li3 dun4 shi2 yi2 pian4 kong4 bai2
+data/BZNSYP/Wave/001659.wav|wang2 fei1 shai4 yu3 zhao4 wei1 lin2 dan1 de5 he2 zhao4
+data/BZNSYP/Wave/001694.wav|tu2 wei2 yin2 hang2 ka3 bei4 shua1 de5 qing1 dan1
+data/BZNSYP/Wave/001864.wav|li4 ta3 hong2 hui2 dao4 ying1 ji2 sha1 hou4 ning2 bo1 de5 nang2 bing3 tan1 you2 di4 di5 tuo1 he2 ti2 jie1 guan3
+data/BZNSYP/Wave/001897.wav|gong1 xiao1 she4 po4 chan3 hou4 ta1 zou3 nan2 chuang2 bei3 yi3 mai4 kao3 yang2 rou4 chuan4 wei2 sheng1
+data/BZNSYP/Wave/002010.wav|shuo1 zhe4 duan4 hua4 shi2 ta1 you2 dian3 dou2 dou3 huo1 huo1 ji1 hu1 dai4 zhe5 ai1 qiu2 de5 yi4 wei4
+data/BZNSYP/Wave/002015.wav|rou2 mian4 jiao3 ji1 dan4 qie1 huo2 tui3 chang2 qing1 jiao1 yi3 ji2 tiao2 zhi4 zuo3 liao4
+data/BZNSYP/Wave/002025.wav|ju4 jie4 shao4 ben3 ci4 shi4 gu4 yi2 si4 yu3 xue2 sheng1 chi1 de5 shi2 tang2 yue4 bing2 you3 guan1
+data/BZNSYP/Wave/002033.wav|deng3 yi4 deng3 ka2 er3 bu4 xian1 sheng5
+data/BZNSYP/Wave/002052.wav|pai1 wan2 ju4 si1 di3 xia4 mei2 you3 lian2 luo4
+data/BZNSYP/Wave/002112.wav|zui4 hou4 cen2 zhen4 chao2 bang1 ta1 da3 ying2 le5 guan1 si5
+data/BZNSYP/Wave/002256.wav|ta1 ceng1 yi2 xia4 yue4 xia4 chuang2 lan2 zai4 nv3 er2 mian4 qian2
+data/BZNSYP/Wave/002552.wav|zuo2 ri4 xiao3 qiang2 zheng4 zai4 shua3 wan2 ju4 che1
+data/BZNSYP/Wave/002706.wav|zai4 jia1 ren2 de5 zhi2 niu4 xia4 han2 zhi4 peng2 jie4 diao4 le5 mei3 zhou1 pa2 bai2 yun2 shan1 de5 yin3
+data/BZNSYP/Wave/002722.wav|qiang2 niu3 de5 gua1 bu4 tian2 qiang2 niu3 de5 shui4 ye3 bu2 hui4 xiang1
+data/BZNSYP/Wave/002732.wav|li2 hao3 guo1 xiao2 min3 da4 hun1 hao3 xiong1 di4 peng2 chang3
+data/BZNSYP/Wave/002867.wav|an1 xian1 sheng5 gei3 ji4 zhe3 cu1 suan4 le5 yi4 bi3 zhang4
+data/BZNSYP/Wave/002951.wav|dan4 zui4 kai1 xin1 mo4 guo4 yu2 yi1 sheng1 gao4 su5 wo3 nan1 nan1 shi2 fen1 jian4 kang1
+data/BZNSYP/Wave/003026.wav|jiu4 shi4 xiang3 hun4 xiao2 yi4 zhong3 gai4 nian4
+data/BZNSYP/Wave/003075.wav|fu4 mu2 dao3 di4 bu2 dong4 tan5 hou4 feng2 tian1 yun2 hui2 dao4 zi4 ji3 wu1 li3
+data/BZNSYP/Wave/003130.wav|nan2 zi3 ge4 ren2 yue4 ye3 sai4 de5 gui4 guan4 ze2 bei4 gan1 su4 xuan2 shou3 wang2 zhen1 qiang3 de2
+data/BZNSYP/Wave/003137.wav|she4 lun4 shuo1 dui4 shui4 shou1 de5 liang4 li4 yu4 qi1 suo3 de2 shui4 shou1 de5 cheng2 zhang3 ju1 gong1 jue2 wei3
+data/BZNSYP/Wave/003161.wav|liu2 yuan2 yong4 mian2 qian1 gei3 fu4 qin1 qing1 jie2 ya2 chi3 shi2 zuo4 chu1 zhang1 kou3 de5 shi4 fan4
+data/BZNSYP/Wave/003171.wav|ben3 ren2 yun4 fu4 yi4 mei2 ge1 ge1 ge1 zuo2 wan3 shi1 mian2 rang4 er4 huo4 lao3 gong1 gei3 du4 li3 de5 bao3 bao5 jiang3 ge5 gu4 shi5
+data/BZNSYP/Wave/003220.wav|song4 jian4 pi1 jian1 hao3 le5 neng2 he2 hen3 duo1 yi1 fu5 da1 pei4 you3 ge2 diao4
+data/BZNSYP/Wave/003239.wav|ge2 wei3 he2 ma1 ma5 jie3 jie5 liu2 zai4 hang2 zhou1
+data/BZNSYP/Wave/003262.wav|chen2 tie3 dai4 zhe5 liu2 ying2 pao3 dao4 ha1 er3 bin1 xiang3 zai4 nar4 duo2 ji3 tian1
+data/BZNSYP/Wave/003337.wav|guo2 jia1 fa3 lv4 you3 ming2 wen2 gui1 ding4 chu1 tu3 wen2 wu4 bu4 ke2 yi2 mai3 mai4
+data/BZNSYP/Wave/003498.wav|bie2 zheng3 zhe4 mei2 yong4 de5 kuai4 gao4 su5 wo3 che1 zhuang4 na3 le5
+data/BZNSYP/Wave/003549.wav|feng3 ci4 zong3 shi4 jian1 rui4 de5 ran2 er2 you1 mo4 de5 feng3 ci4 que4 chu1 yu2 ku2 kou3 po2 xin1 de5 shan4 yi4
+data/BZNSYP/Wave/003580.wav|bao3 an1 he2 lu4 ren2 fen1 fen1 zhui1 nian3
+data/BZNSYP/Wave/003604.wav|zhong1 zhou1 lu4 shang4 che1 lai2 che1 wang3 la3 ba5 sheng1 he2 fa1 dong4 ji1 de5 weng1 weng1 sheng1 ci2 qi2 bi3 fu2
+data/BZNSYP/Wave/003626.wav|hou4 lai2 wo3 men5 you3 ren2 song4 lai2 shuan4 yang2 rou4 he2 guan4 chang2 ta1 cai2 chi1 qi3 lai2
+data/BZNSYP/Wave/003651.wav|he1 bei1 niu2 nai3 kan4 ge5 dian4 ying3 la5
+data/BZNSYP/Wave/003694.wav|zhi4 hong2 qu1 ben3 shi4 kong1 de5 xiang1 dang1 yu2 dian4 nao2 huan3 cun2
+data/BZNSYP/Wave/004155.wav|er2 zhe4 ze2 yao2 chen2 qian1 zhe5 xiao3 mao2 lv2 de5 guang3 gao4 ye3 wei4 gan3 ji2 kuai4 su4 ti2 gao1 le5 zhi1 ming2 du4
+data/BZNSYP/Wave/004884.wav|tang1 mou3 kan4 hou4 xin1 zhong1 fei1 chang2 fen4 nu4 bian4 chan3 sheng1 bao4 fu5 gong1 gong5 de5 e4 nian4
+data/BZNSYP/Wave/005015.wav|liu2 xiang1 ji4 shi4 hu2 nan2 sheng3 you1 xian4 da4 tong2 qiao2 zhen4 da4 ban3 mi2 chang3 lao2 ban3
+data/BZNSYP/Wave/005047.wav|qi2 qian2 yue4 fu4 jian4 zhuang4 shang4 qian2 qiang3 duo2 da2 huo3 ji1
+data/BZNSYP/Wave/005061.wav|fang4 xia4 dian4 hua4 cai2 shu4 fen1 zhong1 mu3 qin1 ya3 zhe5 sang3 zi5 de5 ku1 hou3 sheng1 yi3 jing1 xiang2 qi3
+data/BZNSYP/Wave/005158.wav|huo3 zai1 zhong1 yi4 nv2 zi3 zang4 shen1 huo2 chang3
+data/BZNSYP/Wave/005250.wav|zhe4 xie1 yang2 shu4 miao2 pu3 bian4 bi3 jiao4 ai2 xiao3 zhi1 gan4 hen3 xi4
+data/BZNSYP/Wave/005277.wav|yao4 shi4 jing1 chang2 la1 du4 zi5 jian4 yi4 zhu3 ren2 qu4 kan4 kan5 zhong1 yi1 tiao2 li3 yi2 xia4 chang2 wei4
+data/BZNSYP/Wave/005359.wav|ni3 die1 fan4 le5 cun1 gui1 jiu4 mei2 shi4 le5
+data/BZNSYP/Wave/005491.wav|ba2 nv3 ren2 hong2 hao3 le5 nan2 ren2 jiu4 you2 pin3 wei4 le5
+data/BZNSYP/Wave/005684.wav|tie3 guan4 shang4 fang2 le5 ren2 yingr3 you4 luo4 dao4 le5 di4 shang4
+data/BZNSYP/Wave/005715.wav|lin2 shi2 ling2 qu3 sheng1 huo2 wu4 pin3 chu4 she4 zai4 zhong1 shu1 lou2 di4 si4 ceng2 de5 yue4 lan3 shi4 li3
+data/BZNSYP/Wave/005784.wav|shang4 ci4 lai2 xin1 jia1 po1 ye3 jian4 guo4 mian4 de5 lao3 peng2 you5 ne5
+data/BZNSYP/Wave/005799.wav|ge4 ren2 zui4 xi3 huan1 xiao1 yao2 ren2 ren2 dou1 shuo1 jing1 hong2 yi4 pie1
+data/BZNSYP/Wave/006090.wav|shui2 zai4 gang1 cai2 yi4 bo1 sha1 die1 de5 guo4 cheng2 zhuan4 dao4 pian2 yi5 le5
+data/BZNSYP/Wave/006284.wav|nan2 zi2 zou3 lu4 de5 zi1 shi4 yao2 yao2 huang4 huang4 de5 rang4 gao1 zhou1 you3 xie1 jing3 jue2
+data/BZNSYP/Wave/006366.wav|min2 jing3 shuo1 cong2 tan2 hua4 zhong1 gan3 jue2 dao4 ta1 yi4 qi5 you4 shuang3 kuai4
+data/BZNSYP/Wave/006490.wav|mei2 kong4 suan4 le5 bu4 gei2 ni3 le5
+data/BZNSYP/Wave/006605.wav|yi4 guo2 liang3 zhi4 de5 cheng2 gong1 chao1 hu1 wo3 men5 de5 yu4 qi1
+data/BZNSYP/Wave/006771.wav|wang2 qing1 yu2 bi3 jiao4 jian4 zhuang4 da4 hou3 yi4 sheng1 yi2 xia4 ba3 nan2 zi3 en4 dao3 zai4 di4
+data/BZNSYP/Wave/006953.wav|gu3 ling2 yue4 chao1 qian2 de5 hai2 zi5 cheng2 nian2 hou4 shen1 gao1 jiu4 yue4 ai2 xiao3
+data/BZNSYP/Wave/006995.wav|suo2 yi2 yi3 hou4 da3 che1 shi2 da4 jia1 hai2 yao4 kan4 kan5 che1 ding3 yo5
+data/BZNSYP/Wave/007125.wav|ceng2 jing1 you3 ge5 nv3 hair2 wen4 wo3 ni3 shi4 shuai4 ge1 ma5
+data/BZNSYP/Wave/007251.wav|hao3 kai1 xin1 de5 yi4 tian1 o5
+data/BZNSYP/Wave/007264.wav|ying1 gai1 shi4 jiao4 jiu4 lao3 ye2 ba5
+data/BZNSYP/Wave/007367.wav|yi3 qian2 bei4 lao3 han4 er2 fou3 ding4 de5 tai4 duo1 xian4 zai4 ren4 he2 shi4 qing2 dou1 dei2 wo3 zi4 ji3 lai2 jue2 ding4
+data/BZNSYP/Wave/007378.wav|wei4 ci3 ta1 te4 di4 yan2 jiu1 le5 yi4 hai1 de5 zu1 che1 he2 tong5
+data/BZNSYP/Wave/007569.wav|chang2 chu1 men2 huo2 dong4 da4 ye5 de5 xin1 qing2 ye3 yue4 lai2 yue4 kai1 lang3
+data/BZNSYP/Wave/007713.wav|yi1 yuan4 tong1 guo4 pou1 fu4 chan3 de5 fang1 shi4 bang1 ta1 chan3 xia4 ying1 er2
+data/BZNSYP/Wave/007755.wav|wo3 men5 can1 jia1 le5 miao2 zu2 chuan2 tong3 de5 min2 su2 huo2 dong4 zhi2 jie1 gan3 shou4 li2 zu2 miao2 zu2 wen2 hua4 de5 yun4 wei4
+data/BZNSYP/Wave/007796.wav|zen3 me5 yang4 xiang4 ta1 men5 jie4 shao4 wo3 men5 de5 zu3 guo2
+data/BZNSYP/Wave/008031.wav|zai4 jiang1 xi1 jiu3 jiang1 lao3 shi1 jiang1 yi4 ming2 xue2 sheng1 de5 er3 duo5 gei2 ning3 duan4 xia4 dai1 quan2 ban1 hai2 zi5
+data/BZNSYP/Wave/008090.wav|lin2 fu4 cai2 liu2 zhi3 shi2 qi2 yi1 bu4 shi2 qi2 er4 ba3 lao2 she3 si4 shi4 tong2 tang2 li3 de5 shu3 cuo4 fang4 le5 guo4 qu4
+data/BZNSYP/Wave/008194.wav|wo3 ning2 shi4 jing1 tan4 yan3 jian4 dao4 yi4 zhong3 yi4 chang2 de5 mei3
+data/BZNSYP/Wave/008291.wav|zhe4 me5 duo1 xiang3 ba2 wo3 lei4 si3 ma5
+data/BZNSYP/Wave/008302.wav|xuan2 mei3 zai4 wei3 nei4 rui4 la1 shi4 quan2 min2 re4 zhong1 de5 sheng4 shi4
+data/BZNSYP/Wave/008532.wav|gen1 ju4 xian4 suo2 xian3 shi4 zheng4 mou3 ji4 you2 ke3 neng2 yi3 jing1 gai3 ming2 huan4 xing4 piao3 bai2 shen1 fen4
+data/BZNSYP/Wave/008569.wav|ling2 ling5 biao2 jie3 wei4 ji4 zhe3 ti2 gong1 le5 yi2 fen4 ta1 he2 ling2 ling5 tong2 xue2 xiao2 wei3 de5 liao2 tian1 ji4 lu4
+data/BZNSYP/Wave/008613.wav|dui4 da4 sai4 tui1 chu1 de5 xi4 lie4 chi3 cun4 biao1 zhun3 zhou1 cen2 cen2 ren4 wei2 you3 xie1 nan2 yi3 jie1 shou4
+data/BZNSYP/Wave/008928.wav|zhuan3 tou2 yi2 kan4 yi4 lao2 nai3 nai5 chong4 wo3 xiao4 xi1 xi1 de5 shuo1 xiao2 huo3 zi5 zhua1 zhe5 ni2 dian3 che1 huang4
+data/BZNSYP/Wave/008956.wav|shang4 mian4 xie2 you3 ming2 zi4 chu1 sheng1 nian2 yue4 deng3 xin4 xi1 dan4 xian4 zai4 dou1 gao3 diu1 le5
+data/BZNSYP/Wave/009054.wav|ju4 xi1 lao3 tai4 tai5 du2 zi4 yi4 ren2 ju1 zhu4 shen1 bian1 wu2 ren2 zhao4 gu5
+data/BZNSYP/Wave/009192.wav|dan4 wo3 men5 zong3 bu4 neng2 lv3 you2 de5 shi2 hou5 ye3 chuai1 ge5 hu4 kou3 bu4 ba5 tai4 ma2 fan5 le5
+data/BZNSYP/Wave/009217.wav|er2 qiu1 yi2 ke3 chen2 qi2 deng3 lao2 zhu3 li4 geng4 shi4 xian3 de5 cuo1 tuo2 le5 xu3 duo1
+data/BZNSYP/Wave/009527.wav|zai4 zhu2 guang1 de5 ying4 zhao4 xia4 lao3 ren2 yan2 jiao3 de5 lei4 hua1 shan2 shan3 fa1 liang4
+data/BZNSYP/Wave/009820.wav|yong4 ren2 dan1 wei4 bu4 de2 ju4 jue2 zu3 nao2
+data/BZNSYP/Wave/009907.wav|guan1 da4 shi4 mou2 da4 ju2 chu1 da4 ce4 shi3 zhong1 shi4 gai1 yuan4 de5 ban4 yuan4 fang1 zhen1
