@@ -2,7 +2,7 @@ import matplotlib.pylab as plt
 import numpy as np
 import soundfile as sf
 import torch
-
+import pinyin
 from config import sampling_rate
 from models.layers import STFT
 from utils import text_to_sequence, ensure_folder
@@ -65,6 +65,7 @@ if __name__ == '__main__':
     denoiser = Denoiser(waveglow)
 
     text = "必须树立公共交通优先发展的理念"
+    text = pinyin.get(text, format="numerical", delimiter=" ")
     sequence = np.array(text_to_sequence(text))[None, :]
     sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
 
