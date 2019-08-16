@@ -112,7 +112,7 @@ if __name__ == '__main__':
     collate_fn = TextMelCollate(config.n_frames_per_step)
     valid_dataset = TextMelLoader(config.validation_files, config)
     text, mel = valid_dataset[0]
-    text = sequence_to_text(text)
+    text = sequence_to_text(text.numpy().tolist())
 
     print('text: ' + str(text))
     print('mel: ' + str(mel))
