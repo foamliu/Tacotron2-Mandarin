@@ -210,5 +210,5 @@ def text_to_sequence(text):
 
 
 def sequence_to_text(seq):
-    result = [IVOCAB[idx] for idx in seq]
+    result = [IVOCAB[str(idx)] for idx in seq]
     return result
