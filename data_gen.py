@@ -102,3 +102,13 @@ class TextMelCollate:
             output_lengths[i] = mel.size(1)
 
         return text_padded, input_lengths, mel_padded, gate_padded, output_lengths
+
+
+if __name__ == '__main__':
+    import config
+    from utils import parse_args
+
+    args = parse_args()
+    collate_fn = TextMelCollate(config.n_frames_per_step)
+    valid_dataset = TextMelLoader(config.validation_files, config)
+    print(valid_dataset[0])
