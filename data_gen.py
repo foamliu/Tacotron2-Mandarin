@@ -106,9 +106,13 @@ class TextMelCollate:
 
 if __name__ == '__main__':
     import config
-    from utils import parse_args
+    from utils import parse_args, sequence_to_text
 
     args = parse_args()
     collate_fn = TextMelCollate(config.n_frames_per_step)
     valid_dataset = TextMelLoader(config.validation_files, config)
-    print(valid_dataset[0])
+    text, mel = valid_dataset[0]
+    text = sequence_to_text(text)
+
+    print('text: ' + str(text))
+    print('mel: ' + str(mel))

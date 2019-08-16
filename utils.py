@@ -207,3 +207,8 @@ IVOCAB = data['IVOCAB']
 def text_to_sequence(text):
     result = [VOCAB[ch] for ch in text]
     return result
+
+
+def sequence_to_text(seq):
+    result = [IVOCAB[idx] for idx in seq]
+    return result
