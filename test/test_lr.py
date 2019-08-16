@@ -3,7 +3,7 @@ import numpy as np
 
 if __name__ == '__main__':
     k = 0.0002
-    warmup_steps = 40000
+    warmup_steps = 20000
     max_lr = 1e-3
     min_lr = 1e-5
 
