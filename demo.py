@@ -68,9 +68,13 @@ if __name__ == '__main__':
     # text = pinyin.get(text, format="numerical", delimiter=" ")
     text = 'ge2 wei3 he2 ma1 ma5 jie3 jie5 liu2 zai4 hang2 zhou1'
     sequence = np.array(text_to_sequence(text))[None, :]
+    print(sequence.shape)
     sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
+    print(sequence.size())
 
     mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
+    print(mel_outputs.size())
+    print(mel_outputs_postnet.size())
     plot_data((mel_outputs.float().data.cpu().numpy()[0],
                mel_outputs_postnet.float().data.cpu().numpy()[0],
                alignments.float().data.cpu().numpy()[0].T))
