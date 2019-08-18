@@ -80,7 +80,7 @@ def parse_args():
     parser.add_argument('--epochs', default=500, type=int)
     parser.add_argument('--max_norm', default=1, type=float, help='Gradient norm threshold to clip')
     # minibatch
-    parser.add_argument('--batch_size', default=32, type=int)
+    parser.add_argument('--batch_size', default=16, type=int)
     parser.add_argument('--num-workers', default=4, type=int,
                         help='Number of workers to generate minibatch')
     # logging
