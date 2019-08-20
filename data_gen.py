@@ -107,7 +107,6 @@ class TextMelCollate:
 
 if __name__ == '__main__':
     import config
-    import numpy as np
     from utils import parse_args, sequence_to_text
 
     args = parse_args()
@@ -119,13 +118,14 @@ if __name__ == '__main__':
     valid_dataset = TextMelLoader(config.validation_files, config)
     print('len(valid_dataset): ' + str(len(valid_dataset)))
 
-    text, mel = valid_dataset[50]
-    text = sequence_to_text(text.numpy().tolist())
-    text = ''.join(text)
-    mel = mel.numpy()
+    for data in valid_dataset:
+        text, mel = data
+        text = sequence_to_text(text.numpy().tolist())
+        text = ''.join(text)
+        mel = mel.numpy()
 
-    print('text: ' + str(text))
-    print('mel: ' + str(mel))
-    print('np.mean(mel): ' + str(np.mean(mel)))
-    print('np.max(mel): ' + str(np.max(mel)))
-    print('np.min(mel): ' + str(np.min(mel)))
+        print('text: ' + str(text))
+        print('mel.size(): ' + str(mel.size()))
+        # print('np.mean(mel): ' + str(np.mean(mel)))
+        # print('np.max(mel): ' + str(np.max(mel)))
+        # print('np.min(mel): ' + str(np.min(mel)))
