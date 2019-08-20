@@ -61,7 +61,7 @@ def train_net(args):
         # alignments
         model.eval()
         test_align = test_alignment(model)
-        writer.add_image('test_alignment', test_align, epoch, dataformats='HWC')
+        writer.add_image('model/alignment', test_align, epoch, dataformats='HWC')
 
         # One epoch's training
         train_loss = train(train_loader=train_loader,
@@ -70,11 +70,11 @@ def train_net(args):
                            criterion=criterion,
                            epoch=epoch,
                            logger=logger)
-        writer.add_scalar('train_loss', train_loss, epoch)
+        writer.add_scalar('model/train_loss', train_loss, epoch)
 
         lr = optimizer.lr
         print('\nLearning rate: {}'.format(lr))
-        writer.add_scalar('learning_rate', lr, epoch)
+        writer.add_scalar('model/learning_rate', lr, epoch)
         step_num = optimizer.step_num
         print('Step num: {}\n'.format(step_num))
 
@@ -83,7 +83,7 @@ def train_net(args):
                            model=model,
                            criterion=criterion,
                            logger=logger)
-        writer.add_scalar('valid_loss', valid_loss, epoch)
+        writer.add_scalar('model/valid_loss', valid_loss, epoch)
 
         # Check if there was an improvement
         is_best = valid_loss < best_loss
