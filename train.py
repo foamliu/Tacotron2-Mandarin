@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from tensorboardX import SummaryWriter
-# from torch import nn
+from torch import nn
 from tqdm import tqdm
 
 import config
@@ -9,7 +9,7 @@ from data_gen import TextMelLoader, TextMelCollate
 from models.loss_function import Tacotron2Loss
 from models.models import Tacotron2
 from models.optimizer import Tacotron2Optimizer
-from utils import parse_args, save_checkpoint, AverageMeter, get_logger, test_alignment
+from utils import parse_args, save_checkpoint, AverageMeter, get_logger, test_alignment, parse_batch
 
 
 def train_net(args):
@@ -25,8 +25,8 @@ def train_net(args):
     if checkpoint is None:
         # model
         model = Tacotron2(config)
-        # print(model)
-        # model = nn.DataParallel(model)
+        print(model)
+        model = nn.DataParallel(model)
 
         # optimizer
         optimizer = Tacotron2Optimizer(
@@ -105,7 +105,7 @@ def train(train_loader, model, optimizer, criterion, epoch, logger):
     # Batches
     for i, batch in enumerate(train_loader):
         model.zero_grad()
-        x, y = model.parse_batch(batch)
+        x, y = parse_batch(batch)
 
         # Forward prop.
         y_pred = model(x)
@@ -138,7 +138,7 @@ def valid(valid_loader, model, criterion, logger):
     # Batches
     for batch in tqdm(valid_loader):
         model.zero_grad()
-        x, y = model.parse_batch(batch)
+        x, y = parse_batch(batch)
 
         # Forward prop.
         y_pred = model(x)
