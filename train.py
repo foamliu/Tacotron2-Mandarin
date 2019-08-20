@@ -2,9 +2,8 @@ import numpy as np
 import torch
 from tensorboardX import SummaryWriter
 # from torch import nn
-import matplotlib.pylab as plt
 from tqdm import tqdm
-import pinyin
+
 import config
 from data_gen import TextMelLoader, TextMelCollate
 from models.loss_function import Tacotron2Loss
@@ -59,6 +58,10 @@ def train_net(args):
 
     # Epochs
     for epoch in range(start_epoch, args.epochs):
+        # alignments
+        test_align = test_alignment(model)
+        writer.add_image('test_alignment', test_align, epoch)
+
         # One epoch's training
         train_loss = train(train_loader=train_loader,
                            model=model,
@@ -89,10 +92,6 @@ def train_net(args):
             print("\nEpochs since last improvement: %d\n" % (epochs_since_improvement,))
         else:
             epochs_since_improvement = 0
-
-        # alignments
-        test_align = test_alignment(model)
-        writer.add_image('test_alignment', test_align, epoch)
 
         # Save checkpoint
         save_checkpoint(epoch, epochs_since_improvement, model, optimizer, best_loss, is_best)
