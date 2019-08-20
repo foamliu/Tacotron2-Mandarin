@@ -3,13 +3,13 @@ import torch
 from tensorboardX import SummaryWriter
 # from torch import nn
 from tqdm import tqdm
-
+import pinyin
 import config
 from data_gen import TextMelLoader, TextMelCollate
 from models.loss_function import Tacotron2Loss
 from models.models import Tacotron2
 from models.optimizer import Tacotron2Optimizer
-from utils import parse_args, save_checkpoint, AverageMeter, get_logger
+from utils import parse_args, save_checkpoint, AverageMeter, get_logger, text_to_sequence
 
 
 def train_net(args):
@@ -88,6 +88,15 @@ def train_net(args):
             print("\nEpochs since last improvement: %d\n" % (epochs_since_improvement,))
         else:
             epochs_since_improvement = 0
+
+        # alignments
+        text = "必须树立公共交通优先发展的理念"
+        text = pinyin.get(text, format="numerical", delimiter=" ")
+        sequence = np.array(text_to_sequence(text))[None, :]
+        sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
+        _, _, _, alignments = model.inference(sequence)
+        alignments = alignments.float().data.cpu().numpy()[0].T
+        writer.add_image('alignments', alignments, epoch)
 
         # Save checkpoint
         save_checkpoint(epoch, epochs_since_improvement, model, optimizer, best_loss, is_best)
