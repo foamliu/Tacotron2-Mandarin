@@ -10,3 +10,5 @@ print(y, sr)
 print('np.mean(y): ' + str(np.mean(y)))
 print('np.max(y): ' + str(np.max(y)))
 print('np.min(y): ' + str(np.min(y)))
+
+librosa
