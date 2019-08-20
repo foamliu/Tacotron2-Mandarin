@@ -1,8 +1,11 @@
 import argparse
 import logging
 
+import cv2 as cv
 import librosa
+import matplotlib.pylab as plt
 import numpy as np
+import pinyin
 import torch
 
 # from scipy.io.wavfile import read
@@ -200,3 +203,27 @@ def text_to_sequence(text):
 def sequence_to_text(seq):
     result = [IVOCAB[str(idx)] for idx in seq]
     return result
+
+
+def plot_data(data, figsize=(16, 4)):
+    fig, axes = plt.subplots(1, len(data), figsize=figsize)
+    for i in range(len(data)):
+        axes[i].imshow(data[i], aspect='auto', origin='bottom',
+                       interpolation='none')
+
+
+def test_alignment(model):
+    text = "必须树立公共交通优先发展的理念"
+    text = pinyin.get(text, format="numerical", delimiter=" ")
+    sequence = np.array(text_to_sequence(text))[None, :]
+    sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
+    mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
+    plot_data((mel_outputs.float().data.cpu().numpy()[0],
+               mel_outputs_postnet.float().data.cpu().numpy()[0],
+               alignments.float().data.cpu().numpy()[0].T))
+    filename = 'images/temp.jpg'
+    plt.savefig(filename)
+    img = cv.imread(filename)
+    img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+    img = torch.from_numpy(img)
+    return img

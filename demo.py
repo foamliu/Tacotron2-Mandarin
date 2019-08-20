@@ -1,11 +1,12 @@
 import matplotlib.pylab as plt
 import numpy as np
+import pinyin
 import soundfile as sf
 import torch
-import pinyin
+
 from config import sampling_rate
 from models.layers import STFT
-from utils import text_to_sequence, ensure_folder
+from utils import text_to_sequence, ensure_folder, plot_data
 
 
 class Denoiser(torch.nn.Module):
@@ -44,11 +45,7 @@ class Denoiser(torch.nn.Module):
         return audio_denoised
 
 
-def plot_data(data, figsize=(16, 4)):
-    fig, axes = plt.subplots(1, len(data), figsize=figsize)
-    for i in range(len(data)):
-        axes[i].imshow(data[i], aspect='auto', origin='bottom',
-                       interpolation='none')
+
 
 
 if __name__ == '__main__':
@@ -64,9 +61,8 @@ if __name__ == '__main__':
         k.float()
     denoiser = Denoiser(waveglow)
 
-    # text = "必须树立公共交通优先发展的理念"
-    # text = pinyin.get(text, format="numerical", delimiter=" ")
-    text = 'ka2 er2 pu3 pei2 wai4 sun1 wan2 hua2 ti1'
+    text = "必须树立公共交通优先发展的理念"
+    text = pinyin.get(text, format="numerical", delimiter=" ")
     print(text)
     sequence = np.array(text_to_sequence(text))[None, :]
     sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
@@ -75,9 +71,6 @@ if __name__ == '__main__':
     plot_data((mel_outputs.float().data.cpu().numpy()[0],
                mel_outputs_postnet.float().data.cpu().numpy()[0],
                alignments.float().data.cpu().numpy()[0].T))
-
-    alignments = alignments.float().data.cpu().numpy()[0].T
-    print(alignments.shape)
 
     ensure_folder('images')
     plt.savefig('images/mel_spec.jpg')
