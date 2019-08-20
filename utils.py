@@ -213,6 +213,8 @@ def plot_data(data, figsize=(16, 4)):
 
 
 def test_alignment(model):
+    model.eval()
+
     text = "必须树立公共交通优先发展的理念"
     text = pinyin.get(text, format="numerical", delimiter=" ")
     sequence = np.array(text_to_sequence(text))[None, :]
@@ -226,4 +228,5 @@ def test_alignment(model):
     plt.savefig(filename)
     img = cv.imread(filename)
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+    print(img.shape)
     return img
