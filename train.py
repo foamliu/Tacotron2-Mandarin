@@ -61,7 +61,7 @@ def train_net(args):
         # alignments
         model.eval()
         test_align = test_alignment(model)
-        writer.add_image('test_alignment', test_align, epoch)
+        writer.add_image('test_alignment', test_align, epoch, dataformats='HWC')
 
         # One epoch's training
         train_loss = train(train_loader=train_loader,

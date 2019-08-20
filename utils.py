@@ -226,5 +226,4 @@ def test_alignment(model):
     plt.savefig(filename)
     img = cv.imread(filename)
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
-    img = torch.from_numpy(img / 255.)
     return img
