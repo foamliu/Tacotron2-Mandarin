@@ -102,10 +102,6 @@ def train(train_loader, model, optimizer, criterion, epoch, logger):
     for i, batch in enumerate(train_loader):
         model.zero_grad()
         x, y = model.parse_batch(batch)
-        print(x.size())
-        print(x)
-        print(y.size())
-        print(y)
 
         # Forward prop.
         y_pred = model(x)
