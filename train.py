@@ -9,7 +9,7 @@ from data_gen import TextMelLoader, TextMelCollate
 from models.loss_function import Tacotron2Loss
 from models.models import Tacotron2
 from models.optimizer import Tacotron2Optimizer
-from utils import parse_args, save_checkpoint, AverageMeter, get_logger, test_alignment, parse_batch
+from utils import parse_args, save_checkpoint, AverageMeter, get_logger, test_alignment
 
 
 def train_net(args):
@@ -59,8 +59,8 @@ def train_net(args):
     # Epochs
     for epoch in range(start_epoch, args.epochs):
         # alignments
-        # img_align = test_alignment(model)
-        # writer.add_image('model/alignment', img_align, epoch, dataformats='HWC')
+        img_align = test_alignment(model)
+        writer.add_image('model/alignment', img_align, epoch, dataformats='HWC')
 
         # One epoch's training
         train_loss = train(train_loader=train_loader,
@@ -105,7 +105,7 @@ def train(train_loader, model, optimizer, criterion, epoch, logger):
     # Batches
     for i, batch in enumerate(train_loader):
         model.zero_grad()
-        x, y = parse_batch(batch)
+        x, y = model.parse_batch(batch)
 
         # Forward prop.
         y_pred = model(x)
@@ -138,7 +138,7 @@ def valid(valid_loader, model, criterion, logger):
     # Batches
     for batch in tqdm(valid_loader):
         model.zero_grad()
-        x, y = parse_batch(batch)
+        x, y = model.parse_batch(batch)
 
         # Forward prop.
         y_pred = model(x)
