@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 if __name__ == '__main__':
-    k = 0.00005
-    warmup_steps = 50000
+    k = 0.0001
+    warmup_steps = 45000
     max_lr = 1e-3
     min_lr = 1e-5
 
