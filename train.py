@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from tensorboardX import SummaryWriter
-# from torch import nn
+from torch import nn
 from tqdm import tqdm
 
 import config
@@ -26,7 +26,7 @@ def train_net(args):
         # model
         model = Tacotron2(config)
         # print(model)
-        # model = nn.DataParallel(model)
+        model = nn.DataParallel(model)
 
         # optimizer
         optimizer = Tacotron2Optimizer(
