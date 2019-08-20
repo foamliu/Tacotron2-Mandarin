@@ -4,8 +4,9 @@ import logging
 import librosa
 import numpy as np
 import torch
+
 # from scipy.io.wavfile import read
-from config import sampling_rate
+from config import sampling_rate, VOCAB, IVOCAB
 
 
 def clip_gradient(optimizer, grad_clip):
@@ -189,16 +190,6 @@ def to_gpu(x):
     if torch.cuda.is_available():
         x = x.cuda(non_blocking=True)
     return torch.autograd.Variable(x)
-
-
-import json
-from config import vacab_file
-
-with open(vacab_file, 'r', encoding='utf-8') as file:
-    data = json.load(file)
-
-VOCAB = data['VOCAB']
-IVOCAB = data['IVOCAB']
 
 
 def text_to_sequence(text):
