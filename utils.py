@@ -166,6 +166,7 @@ def plot_data(data, figsize=(16, 4)):
     for i in range(len(data)):
         axes[i].imshow(data[i], aspect='auto', origin='bottom',
                        interpolation='none')
+        axes[i].colorbar()
 
 
 def test(model, step_num, loss):
@@ -183,7 +184,6 @@ def test(model, step_num, loss):
     title = 'step={0}, loss={1:.5f}'.format(step_num, loss)
     plt.title(title)
     filename = 'images/temp.jpg'
-    plt.colorbar()
     plt.savefig(filename)
     img = cv.imread(filename)
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
