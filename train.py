@@ -59,6 +59,7 @@ def train_net(args):
     # Epochs
     for epoch in range(start_epoch, args.epochs):
         # alignments
+        model.eval()
         test_align = test_alignment(model)
         writer.add_image('test_alignment', test_align, epoch)
 

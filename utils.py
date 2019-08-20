@@ -217,7 +217,8 @@ def test_alignment(model):
     text = pinyin.get(text, format="numerical", delimiter=" ")
     sequence = np.array(text_to_sequence(text))[None, :]
     sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
-    mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
+    with torch.no_grad():
+        mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
     plot_data((mel_outputs.float().data.cpu().numpy()[0],
                mel_outputs_postnet.float().data.cpu().numpy()[0],
                alignments.float().data.cpu().numpy()[0].T))
