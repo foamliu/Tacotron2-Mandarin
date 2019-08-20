@@ -25,7 +25,6 @@ distributed_run = False
 load_mel_from_disk = False,
 training_files = 'filelists/bznsyp_audio_text_train_filelist.txt'
 validation_files = 'filelists/bznsyp_audio_text_valid_filelist.txt'
-text_cleaners = ['english_cleaners']
 
 ################################
 # Audio Parameters             #
