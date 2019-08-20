@@ -6,6 +6,12 @@ meta_file = 'data/BZNSYP/ProsodyLabeling/000001-010000.txt'
 wave_folder = 'data/BZNSYP/Wave'
 vacab_file = 'data/vacab.json'
 
+with open(vacab_file, 'r', encoding='utf-8') as file:
+    data = json.load(file)
+
+VOCAB = data['VOCAB']
+IVOCAB = data['IVOCAB']
+
 num_train = 9900
 num_valid = 100
 
