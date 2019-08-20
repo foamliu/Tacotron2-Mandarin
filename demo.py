@@ -77,7 +77,7 @@ if __name__ == '__main__':
                alignments.float().data.cpu().numpy()[0].T))
 
     alignments = alignments.float().data.cpu().numpy()[0].T
-    print(alignments.size())
+    print(alignments.shape)
 
     ensure_folder('images')
     plt.savefig('images/mel_spec.jpg')
