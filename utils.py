@@ -166,7 +166,6 @@ def plot_data(data, figsize=(16, 4)):
     for i in range(len(data)):
         axes[i].imshow(data[i], aspect='auto', origin='bottom',
                        interpolation='none')
-        plt.colorbar(axes[i])
 
 
 def test(model, step_num, loss):
