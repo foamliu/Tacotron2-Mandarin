@@ -72,6 +72,7 @@ if __name__ == '__main__':
     sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
 
     mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
+    print(alignments.size())
     plot_data((mel_outputs.float().data.cpu().numpy()[0],
                mel_outputs_postnet.float().data.cpu().numpy()[0],
                alignments.float().data.cpu().numpy()[0].T))
