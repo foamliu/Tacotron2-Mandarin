@@ -125,7 +125,7 @@ if __name__ == '__main__':
         mel = mel.numpy()
 
         print('text: ' + str(text))
-        print('mel.size(): ' + str(mel.size()))
+        print('mel.size: ' + str(mel.size))
         # print('np.mean(mel): ' + str(np.mean(mel)))
         # print('np.max(mel): ' + str(np.max(mel)))
         # print('np.min(mel): ' + str(np.min(mel)))
