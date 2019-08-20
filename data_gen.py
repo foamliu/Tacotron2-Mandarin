@@ -59,7 +59,7 @@ class TextMelLoader(torch.utils.data.Dataset):
 
 
 class TextMelCollate:
-    """ Zero-pads model inputs and targets based on number of frames per setep
+    """ Zero-pads model inputs and targets based on number of frames per step
     """
 
     def __init__(self, n_frames_per_step):
@@ -113,6 +113,8 @@ if __name__ == '__main__':
     args = parse_args()
     collate_fn = TextMelCollate(config.n_frames_per_step)
     valid_dataset = TextMelLoader(config.validation_files, config)
+    print('len(valid_dataset): ' + str(len(valid_dataset)))
+
     text, mel = valid_dataset[50]
     text = sequence_to_text(text.numpy().tolist())
     text = ''.join(text)
