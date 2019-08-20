@@ -1,7 +1,8 @@
 import librosa
 import numpy as np
+import soundfile
 
-fullpath = '../data/BZNSYP/Wave/007064.wav'
+fullpath = '../audios/007064.wav'
 sampling_rate = 22050
 
 y, sr = librosa.core.load(fullpath, sampling_rate, mono=True)
@@ -11,4 +12,4 @@ print('np.mean(y): ' + str(np.mean(y)))
 print('np.max(y): ' + str(np.max(y)))
 print('np.min(y): ' + str(np.min(y)))
 
-librosa
+soundfile.write('test.wav', y, sampling_rate)
