@@ -45,9 +45,6 @@ class Denoiser(torch.nn.Module):
         return audio_denoised
 
 
-
-
-
 if __name__ == '__main__':
     checkpoint = 'BEST_checkpoint.tar'
     checkpoint = torch.load(checkpoint)
