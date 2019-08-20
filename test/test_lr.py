@@ -2,13 +2,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 if __name__ == '__main__':
-    k = 0.0002
-    warmup_steps = 10000
+    k = 0.00005
+    warmup_steps = 50000
     max_lr = 1e-3
     min_lr = 1e-5
 
     lr_list = []
-    for step_num in range(1, 100000):
+    for step_num in range(1, 200000):
 
         lr = max_lr
         if step_num > warmup_steps:
