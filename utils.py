@@ -228,5 +228,6 @@ def test_alignment(model):
     plt.savefig(filename)
     img = cv.imread(filename)
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
-    print(img.shape)
+    img = img / 255.
+    print('img.shape: ' + str(img.shape))
     return img
