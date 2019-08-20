@@ -5,7 +5,7 @@ from torch import nn
 from torch.autograd import Variable
 from torch.nn import functional as F
 
-from utils import get_mask_from_lengths
+from utils import get_mask_from_lengths, to_gpu
 from .layers import ConvNorm, LinearNorm
 
 
