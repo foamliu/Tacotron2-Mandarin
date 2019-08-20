@@ -9,7 +9,7 @@ from data_gen import TextMelLoader, TextMelCollate
 from models.loss_function import Tacotron2Loss
 from models.models import Tacotron2
 from models.optimizer import Tacotron2Optimizer
-from utils import parse_args, save_checkpoint, AverageMeter, get_logger, test_alignment
+from utils import parse_args, save_checkpoint, AverageMeter, get_logger, test
 
 
 def train_net(args):
@@ -58,10 +58,6 @@ def train_net(args):
 
     # Epochs
     for epoch in range(start_epoch, args.epochs):
-        # alignments
-        img_align = test_alignment(model)
-        writer.add_image('model/alignment', img_align, epoch, dataformats='HWC')
-
         # One epoch's training
         train_loss = train(train_loader=train_loader,
                            model=model,
@@ -95,6 +91,10 @@ def train_net(args):
 
         # Save checkpoint
         save_checkpoint(epoch, epochs_since_improvement, model, optimizer, best_loss, is_best)
+
+        # alignments
+        img_align = test(model, optimizer.step_num, valid_loss)
+        writer.add_image('model/alignment', img_align, epoch, dataformats='HWC')
 
 
 def train(train_loader, model, optimizer, criterion, epoch, logger):

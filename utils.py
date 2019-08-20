@@ -212,7 +212,7 @@ def plot_data(data, figsize=(16, 4)):
                        interpolation='none')
 
 
-def test_alignment(model):
+def test(model, step_num, loss):
     model.eval()
 
     text = "必须树立公共交通优先发展的理念"
@@ -224,10 +224,11 @@ def test_alignment(model):
     plot_data((mel_outputs.float().data.cpu().numpy()[0],
                mel_outputs_postnet.float().data.cpu().numpy()[0],
                alignments.float().data.cpu().numpy()[0].T))
+    title = 'step={0}, loss={1:.5f}'.format(step_num, loss)
+    plt.title(title)
     filename = 'images/temp.jpg'
     plt.savefig(filename)
     img = cv.imread(filename)
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     img = img / 255.
-    print('img.shape: ' + str(img.shape))
     return img
