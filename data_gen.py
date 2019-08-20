@@ -112,6 +112,10 @@ if __name__ == '__main__':
 
     args = parse_args()
     collate_fn = TextMelCollate(config.n_frames_per_step)
+
+    train_dataset = TextMelLoader(config.training_files, config)
+    print('len(train_dataset): ' + str(len(train_dataset)))
+
     valid_dataset = TextMelLoader(config.validation_files, config)
     print('len(valid_dataset): ' + str(len(valid_dataset)))
 
