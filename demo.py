@@ -58,7 +58,7 @@ if __name__ == '__main__':
         k.float()
     denoiser = Denoiser(waveglow)
 
-    text = "喂 您好 我是恒洁卫浴客服专员 给您做一下安装回访 现在方便接听吗"
+    text = "人之初 性本善 性相近 习相远 苟不教 性乃迁 教之道 贵以专"
     text = pinyin.get(text, format="numerical", delimiter=" ")
     print(text)
     sequence = np.array(text_to_sequence(text))[None, :]
