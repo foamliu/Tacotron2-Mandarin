@@ -171,7 +171,7 @@ def plot_data(data, figsize=(16, 4)):
 def test(model, step_num, loss):
     model.eval()
 
-    text = "必须树立公共交通优先发展的理念"
+    text = "相对论直接和间接的催生了量子力学的诞生 也为研究微观世界的高速运动确立了全新的数学模型"
     text = pinyin.get(text, format="numerical", delimiter=" ")
     sequence = np.array(text_to_sequence(text))[None, :]
     sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
