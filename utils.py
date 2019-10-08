@@ -10,6 +10,7 @@ import torch
 
 # from scipy.io.wavfile import read
 from config import sampling_rate, VOCAB, IVOCAB
+from text.cleaners import chinese_cleaners
 
 
 def clip_gradient(optimizer, grad_clip):
@@ -152,6 +153,7 @@ def to_gpu(x):
 
 
 def text_to_sequence(text):
+    text = chinese_cleaners(text)
     result = [VOCAB[ch] for ch in text]
     return result
 
