@@ -4,8 +4,7 @@ import logging
 import librosa
 import numpy as np
 import torch
-
-from config import sampling_rate
+from scipy.io.wavfile import read
 
 
 def clip_gradient(optimizer, grad_clip):
@@ -81,7 +80,7 @@ def parse_args():
     parser.add_argument('--epochs', default=500, type=int)
     parser.add_argument('--max_norm', default=1, type=float, help='Gradient norm threshold to clip')
     # minibatch
-    parser.add_argument('--batch_size', default=32, type=int)
+    parser.add_argument('--batch_size', default=16, type=int)
     parser.add_argument('--num-workers', default=4, type=int,
                         help='Number of workers to generate minibatch')
     # logging
@@ -175,9 +174,9 @@ def get_mask_from_lengths(lengths):
 
 
 def load_wav_to_torch(full_path):
-    # sampling_rate, data = read(full_path)
-    y, sr = librosa.core.load(full_path, sampling_rate, mono=True)
-    return torch.FloatTensor(y.astype(np.float32)), sr
+    sampling_rate, data = read(full_path)
+    # y, sr = librosa.core.load(full_path, sampling_rate, mono=True)
+    return torch.FloatTensor(data.astype(np.float32)), sampling_rate
 
 
 def load_filepaths_and_text(filename, split="|"):

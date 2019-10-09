@@ -31,7 +31,7 @@ text_cleaners = ['english_cleaners']
 # Audio Parameters             #
 ################################
 max_wav_value = 32768.0
-sampling_rate = 22050
+sampling_rate = 48000
 filter_length = 1024
 hop_length = 256
 win_length = 1024
