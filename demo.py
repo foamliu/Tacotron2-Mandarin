@@ -1,11 +1,12 @@
 import matplotlib.pylab as plt
 import numpy as np
+import pinyin
 import soundfile as sf
 import torch
-import pinyin
+
 from config import sampling_rate
 from models.layers import STFT
-from utils import text_to_sequence, ensure_folder
+from utils import text_to_sequence, ensure_folder, plot_data
 
 
 class Denoiser(torch.nn.Module):
@@ -44,13 +45,6 @@ class Denoiser(torch.nn.Module):
         return audio_denoised
 
 
-def plot_data(data, figsize=(16, 4)):
-    fig, axes = plt.subplots(1, len(data), figsize=figsize)
-    for i in range(len(data)):
-        axes[i].imshow(data[i], aspect='auto', origin='bottom',
-                       interpolation='none')
-
-
 if __name__ == '__main__':
     checkpoint = 'BEST_checkpoint.tar'
     checkpoint = torch.load(checkpoint)
@@ -64,20 +58,17 @@ if __name__ == '__main__':
         k.float()
     denoiser = Denoiser(waveglow)
 
-    # text = "必须树立公共交通优先发展的理念"
-    # text = pinyin.get(text, format="numerical", delimiter=" ")
-    text = 'ge2 wei3 he2 ma1 ma5 jie3 jie5 liu2 zai4 hang2 zhou1'
+    text = "相对论直接和间接的催生了量子力学的诞生 也为研究微观世界的高速运动确立了全新的数学模型"
+    text = pinyin.get(text, format="numerical", delimiter=" ")
+    print(text)
     sequence = np.array(text_to_sequence(text))[None, :]
-    print(sequence.shape)
     sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
-    print(sequence.size())
 
     mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
-    print(mel_outputs.size())
-    print(mel_outputs_postnet.size())
     plot_data((mel_outputs.float().data.cpu().numpy()[0],
                mel_outputs_postnet.float().data.cpu().numpy()[0],
                alignments.float().data.cpu().numpy()[0].T))
+
     ensure_folder('images')
     plt.savefig('images/mel_spec.jpg')
 

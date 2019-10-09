@@ -29,7 +29,7 @@ $ tensorboard --logdir runs
 ```
 
 ### Demo
-Generate mel-spectrogram for text "Waveglow is really awesome!"
+Generate mel-spectrogram for text "相对论直接和间接的催生了量子力学的诞生 也为研究微观世界的高速运动确立了全新的数学模型"
 ```bash
 $ python demo.py
 ```

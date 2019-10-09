@@ -9,7 +9,7 @@ from data_gen import TextMelLoader, TextMelCollate
 from models.loss_function import Tacotron2Loss
 from models.models import Tacotron2
 from models.optimizer import Tacotron2Optimizer
-from utils import parse_args, save_checkpoint, AverageMeter, get_logger
+from utils import parse_args, save_checkpoint, AverageMeter, get_logger, test
 
 
 def train_net(args):
@@ -25,7 +25,7 @@ def train_net(args):
     if checkpoint is None:
         # model
         model = Tacotron2(config)
-        # print(model)
+        print(model)
         # model = nn.DataParallel(model)
 
         # optimizer
@@ -65,11 +65,11 @@ def train_net(args):
                            criterion=criterion,
                            epoch=epoch,
                            logger=logger)
-        writer.add_scalar('Train_Loss', train_loss, epoch)
+        writer.add_scalar('model/train_loss', train_loss, epoch)
 
         lr = optimizer.lr
         print('\nLearning rate: {}'.format(lr))
-        writer.add_scalar('Learning_Rate', lr, epoch)
+        writer.add_scalar('model/learning_rate', lr, epoch)
         step_num = optimizer.step_num
         print('Step num: {}\n'.format(step_num))
 
@@ -78,7 +78,7 @@ def train_net(args):
                            model=model,
                            criterion=criterion,
                            logger=logger)
-        writer.add_scalar('Valid_Loss', valid_loss, epoch)
+        writer.add_scalar('model/valid_loss', valid_loss, epoch)
 
         # Check if there was an improvement
         is_best = valid_loss < best_loss
@@ -91,6 +91,10 @@ def train_net(args):
 
         # Save checkpoint
         save_checkpoint(epoch, epochs_since_improvement, model, optimizer, best_loss, is_best)
+
+        # alignments
+        img_align = test(model, optimizer.step_num, valid_loss)
+        writer.add_image('model/alignment', img_align, epoch, dataformats='HWC')
 
 
 def train(train_loader, model, optimizer, criterion, epoch, logger):

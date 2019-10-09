@@ -1,3 +1,5 @@
+import json
+
 import torch
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # sets device for model and PyTorch tensors
@@ -5,6 +7,12 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # sets de
 meta_file = 'data/BZNSYP/ProsodyLabeling/000001-010000.txt'
 wave_folder = 'data/BZNSYP/Wave'
 vacab_file = 'data/vacab.json'
+
+with open(vacab_file, 'r', encoding='utf-8') as file:
+    data = json.load(file)
+
+VOCAB = data['VOCAB']
+IVOCAB = data['IVOCAB']
 
 num_train = 9900
 num_valid = 100
@@ -22,16 +30,15 @@ distributed_run = False
 ################################
 # Data Parameters             #
 ################################
-load_mel_from_disk = False,
+load_mel_from_disk = False
 training_files = 'filelists/bznsyp_audio_text_train_filelist.txt'
 validation_files = 'filelists/bznsyp_audio_text_valid_filelist.txt'
-text_cleaners = ['english_cleaners']
 
 ################################
 # Audio Parameters             #
 ################################
 max_wav_value = 32768.0
-sampling_rate = 48000
+sampling_rate = 22050
 filter_length = 1024
 hop_length = 256
 win_length = 1024

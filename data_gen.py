@@ -1,5 +1,6 @@
 import random
 
+import numpy as np
 import torch
 import torch.utils.data
 
@@ -17,7 +18,7 @@ class TextMelLoader(torch.utils.data.Dataset):
     def __init__(self, audiopaths_and_text, hparams):
         self.audiopaths_and_text = load_filepaths_and_text(audiopaths_and_text)
         self.sampling_rate = hparams.sampling_rate
-        self.max_wav_value = hparams.max_wav_value
+        # self.max_wav_value = hparams.max_wav_value
         self.load_mel_from_disk = hparams.load_mel_from_disk
         self.stft = layers.TacotronSTFT(
             hparams.filter_length, hparams.hop_length, hparams.win_length,
@@ -38,8 +39,8 @@ class TextMelLoader(torch.utils.data.Dataset):
         if sampling_rate != self.stft.sampling_rate:
             raise ValueError("{} SR doesn't match target {} SR".format(
                 sampling_rate, self.stft.sampling_rate))
-        audio_norm = audio / self.max_wav_value
-        audio_norm = audio_norm.unsqueeze(0)
+        # audio_norm = audio / self.max_wav_value
+        audio_norm = audio.unsqueeze(0)
         audio_norm = torch.autograd.Variable(audio_norm, requires_grad=False)
         melspec = self.stft.mel_spectrogram(audio_norm)
         melspec = torch.squeeze(melspec, 0)
@@ -59,7 +60,7 @@ class TextMelLoader(torch.utils.data.Dataset):
 
 
 class TextMelCollate:
-    """ Zero-pads model inputs and targets based on number of frames per setep
+    """ Zero-pads model inputs and targets based on number of frames per step
     """
 
     def __init__(self, n_frames_per_step):
@@ -107,19 +108,36 @@ class TextMelCollate:
 
 if __name__ == '__main__':
     import config
-    import numpy as np
     from utils import parse_args, sequence_to_text
 
     args = parse_args()
     collate_fn = TextMelCollate(config.n_frames_per_step)
-    valid_dataset = TextMelLoader(config.validation_files, config)
-    text, mel = valid_dataset[0]
-    text = sequence_to_text(text.numpy().tolist())
-    text = ''.join(text)
-    mel = mel.numpy()
 
-    print('text: ' + str(text))
-    print('mel: ' + str(mel))
-    print('np.mean(mel): ' + str(np.mean(mel)))
-    print('np.max(mel): ' + str(np.max(mel)))
-    print('np.min(mel): ' + str(np.min(mel)))
+    train_dataset = TextMelLoader(config.training_files, config)
+    print('len(train_dataset): ' + str(len(train_dataset)))
+
+    valid_dataset = TextMelLoader(config.validation_files, config)
+    print('len(valid_dataset): ' + str(len(valid_dataset)))
+
+    text, mel = valid_dataset[0]
+    print('type(mel): ' + str(type(mel)))
+
+    text_lengths = []
+    mel_lengths = []
+
+    for data in valid_dataset:
+        text, mel = data
+        text = sequence_to_text(text.numpy().tolist())
+        text = ''.join(text)
+        mel = mel.numpy()
+
+        print('text: ' + str(text))
+        print('mel.size: ' + str(mel.size))
+        text_lengths.append(len(text))
+        mel_lengths.append(mel.size)
+        # print('np.mean(mel): ' + str(np.mean(mel)))
+        # print('np.max(mel): ' + str(np.max(mel)))
+        # print('np.min(mel): ' + str(np.min(mel)))
+
+    print('np.mean(text_lengths): ' + str(np.mean(text_lengths)))
+    print('np.mean(mel_lengths): ' + str(np.mean(mel_lengths)))

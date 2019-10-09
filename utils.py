@@ -1,10 +1,16 @@
 import argparse
 import logging
 
+import cv2 as cv
 import librosa
+import matplotlib.pylab as plt
 import numpy as np
+import pinyin
 import torch
-from scipy.io.wavfile import read
+
+# from scipy.io.wavfile import read
+from config import sampling_rate, VOCAB, IVOCAB
+from text.cleaners import chinese_cleaners
 
 
 def clip_gradient(optimizer, grad_clip):
@@ -77,19 +83,16 @@ def accuracy(scores, targets, k=1):
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Tacotron2')
-    parser.add_argument('--epochs', default=500, type=int)
+    parser.add_argument('--epochs', default=10000, type=int)
     parser.add_argument('--max_norm', default=1, type=float, help='Gradient norm threshold to clip')
     # minibatch
-    parser.add_argument('--batch_size', default=16, type=int)
-    parser.add_argument('--num-workers', default=4, type=int,
-                        help='Number of workers to generate minibatch')
+    parser.add_argument('--batch_size', default=64, type=int)
+    parser.add_argument('--num-workers', default=4, type=int, help='Number of workers to generate minibatch')
     # logging
-    parser.add_argument('--print_freq', default=10, type=int, help='Frequency of printing training infomation')
+    parser.add_argument('--print_freq', default=10, type=int, help='Frequency of printing training information')
     # optimizer
     parser.add_argument('--lr', default=1e-3, type=float, help='Init learning rate')
     parser.add_argument('--l2', default=1e-6, type=float, help='weight decay (L2)')
-    parser.add_argument('--half_lr', dest='half_lr', default=True, type=bool,
-                        help='Halving learning rate when get small improvement')
     parser.add_argument('--checkpoint', type=str, default=None, help='checkpoint')
     args = parser.parse_args()
     return args
@@ -101,7 +104,7 @@ def get_logger():
     formatter = logging.Formatter("%(asctime)s %(levelname)s \t%(message)s")
     handler.setFormatter(formatter)
     logger.addHandler(handler)
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.INFO)
     return logger
 
 
@@ -121,51 +124,6 @@ def pad_list(xs, pad_value):
     return pad
 
 
-# Acoustic Feature Extraction
-# Parameters
-#     - input file  : str, audio file path
-#     - feature     : str, fbank or mfcc
-#     - dim         : int, dimension of feature
-#     - cmvn        : bool, apply CMVN on feature
-#     - window_size : int, window size for FFT (ms)
-#     - stride      : int, window stride for FFT
-#     - save_feature: str, if given, store feature to the path and return len(feature)
-# Return
-#     acoustic features with shape (time step, dim)
-def extract_feature(input_file, feature='fbank', dim=40, cmvn=True, delta=False, delta_delta=False,
-                    window_size=25, stride=10, save_feature=None):
-    y, sr = librosa.load(input_file, sr=None)
-    ws = int(sr * 0.001 * window_size)
-    st = int(sr * 0.001 * stride)
-    if feature == 'fbank':  # log-scaled
-        feat = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=dim,
-                                              n_fft=ws, hop_length=st)
-        feat = np.log(feat + 1e-6)
-    elif feature == 'mfcc':
-        feat = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=dim, n_mels=26,
-                                    n_fft=ws, hop_length=st)
-        feat[0] = librosa.feature.rmse(y, hop_length=st, frame_length=ws)
-
-    else:
-        raise ValueError('Unsupported Acoustic Feature: ' + feature)
-
-    feat = [feat]
-    if delta:
-        feat.append(librosa.feature.delta(feat[0]))
-
-    if delta_delta:
-        feat.append(librosa.feature.delta(feat[0], order=2))
-    feat = np.concatenate(feat, axis=0)
-    if cmvn:
-        feat = (feat - feat.mean(axis=1)[:, np.newaxis]) / (feat.std(axis=1) + 1e-16)[:, np.newaxis]
-    if save_feature is not None:
-        tmp = np.swapaxes(feat, 0, 1).astype('float32')
-        np.save(save_feature, tmp)
-        return len(tmp)
-    else:
-        return np.swapaxes(feat, 0, 1).astype('float32')
-
-
 def get_mask_from_lengths(lengths):
     max_len = torch.max(lengths).item()
     ids = torch.arange(0, max_len, out=torch.cuda.LongTensor(max_len))
@@ -174,9 +132,10 @@ def get_mask_from_lengths(lengths):
 
 
 def load_wav_to_torch(full_path):
-    sampling_rate, data = read(full_path)
-    # y, sr = librosa.core.load(full_path, sampling_rate, mono=True)
-    return torch.FloatTensor(data.astype(np.float32)), sampling_rate
+    # sampling_rate, data = read(full_path)
+    y, sr = librosa.core.load(full_path, sampling_rate)
+    yt, _ = librosa.effects.trim(y)
+    return torch.FloatTensor(yt.astype(np.float32)), sr
 
 
 def load_filepaths_and_text(filename, split="|"):
@@ -193,17 +152,8 @@ def to_gpu(x):
     return torch.autograd.Variable(x)
 
 
-import json
-from config import vacab_file
-
-with open(vacab_file, 'r', encoding='utf-8') as file:
-    data = json.load(file)
-
-VOCAB = data['VOCAB']
-IVOCAB = data['IVOCAB']
-
-
 def text_to_sequence(text):
+    text = chinese_cleaners(text)
     result = [VOCAB[ch] for ch in text]
     return result
 
@@ -211,3 +161,32 @@ def text_to_sequence(text):
 def sequence_to_text(seq):
     result = [IVOCAB[str(idx)] for idx in seq]
     return result
+
+
+def plot_data(data, figsize=(16, 4)):
+    fig, axes = plt.subplots(1, len(data), figsize=figsize)
+    for i in range(len(data)):
+        axes[i].imshow(data[i], aspect='auto', origin='bottom',
+                       interpolation='none')
+
+
+def test(model, step_num, loss):
+    model.eval()
+
+    text = "相对论直接和间接的催生了量子力学的诞生 也为研究微观世界的高速运动确立了全新的数学模型"
+    text = pinyin.get(text, format="numerical", delimiter=" ")
+    sequence = np.array(text_to_sequence(text))[None, :]
+    sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
+    with torch.no_grad():
+        mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
+    plot_data((mel_outputs.float().data.cpu().numpy()[0],
+               mel_outputs_postnet.float().data.cpu().numpy()[0],
+               alignments.float().data.cpu().numpy()[0].T))
+    title = 'step={0}, loss={1:.5f}'.format(step_num, loss)
+    plt.title(title)
+    filename = 'images/temp.jpg'
+    plt.savefig(filename)
+    img = cv.imread(filename)
+    img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+    img = img / 255.
+    return img
