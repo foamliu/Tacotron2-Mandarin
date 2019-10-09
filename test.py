@@ -4,7 +4,7 @@ import torch
 from tqdm import tqdm
 
 import config
-from data_gen import TextMelLoader, collate_fn
+from data_gen import TextMelLoader, TextMelCollate
 from utils import parse_args
 
 if __name__ == '__main__':
@@ -14,6 +14,8 @@ if __name__ == '__main__':
     model.eval()
 
     args = parse_args()
+
+    collate_fn = TextMelCollate(config.n_frames_per_step)
 
     valid_dataset = TextMelLoader(config.validation_files, config)
     valid_loader = torch.utils.data.DataLoader(valid_dataset, batch_size=args.batch_size, collate_fn=collate_fn,
