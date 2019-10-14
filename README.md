@@ -8,8 +8,8 @@ A PyTorch implementation of Tacotron2, described in [Natural TTS Synthesis By Co
 
 ## Dependency
 
-- Python 3.5.2
-- PyTorch 1.0.0
+- Python 3.6.8
+- PyTorch 1.3.0
 
 ## Usage
 ### Data Pre-processing
