@@ -32,7 +32,8 @@ if __name__ == '__main__':
         sequence = torch.autograd.Variable(torch.from_numpy(sequence)).long()
 
         start = time.time()
-        mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
+        with torch.no_grad():
+            mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
         end = time.time()
         elapsed = elapsed + (end - start)
 
