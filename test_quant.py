@@ -62,8 +62,7 @@ def evaluate(model, neval_batches):
             sequence = torch.autograd.Variable(torch.from_numpy(sequence)).long()
 
             start = time.time()
-            with torch.no_grad():
-                mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
+            mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
             end = time.time()
             elapsed = elapsed + (end - start)
             cnt += 1
