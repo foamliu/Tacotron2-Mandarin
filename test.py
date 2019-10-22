@@ -1,12 +1,12 @@
 import time
 
+import numpy as np
 import torch
 from tqdm import tqdm
 
 import config
-from data_gen import TextMelLoader, TextMelCollate
 from models.models import Tacotron2
-from utils import parse_args, HParams
+from utils import text_to_sequence, HParams
 
 if __name__ == '__main__':
     checkpoint = 'tacotron2-cn.pt'
@@ -16,29 +16,24 @@ if __name__ == '__main__':
     model = model.to('cpu')
     model.eval()
 
-    args = parse_args()
+    filename = config.validation_files
+    with open(filename, 'r') as file:
+        lines = file.readlines()
 
-    collate_fn = TextMelCollate(config.n_frames_per_step)
-
-    valid_dataset = TextMelLoader(config.validation_files, config)
-    valid_loader = torch.utils.data.DataLoader(valid_dataset, batch_size=args.batch_size, collate_fn=collate_fn,
-                                               pin_memory=True, shuffle=False, num_workers=args.num_workers)
-
-    num_samples = len(valid_dataset)
+    num_samples = len(lines)
     print('num_samples: ' + str(num_samples))
 
     elapsed = 0
     # Batches
-    for batch in tqdm(valid_loader):
-        model.zero_grad()
-        x, y = model.parse_batch(batch)
+    for line in tqdm(lines):
+        tokens = line.strip().split('|')
+        text = tokens[1]
+        sequence = np.array(text_to_sequence(text))[None, :]
+        sequence = torch.autograd.Variable(torch.from_numpy(sequence)).long()
 
-        # Forward prop.
         start = time.time()
-        y_pred = model(x)
+        mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
         end = time.time()
         elapsed = elapsed + (end - start)
-
-    elapsed = time.time() - start
 
     print('Elapsed: {:.5f} ms'.format(elapsed / num_samples * 1000))
