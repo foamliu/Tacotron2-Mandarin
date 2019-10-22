@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
     waveglow_path = 'waveglow_256channels.pt'
     waveglow = torch.load(waveglow_path)['model']
-    waveglow.eval().half()
+    waveglow.cuda().eval().half()
     for k in waveglow.convinv:
         k.float()
     denoiser = Denoiser(waveglow)
