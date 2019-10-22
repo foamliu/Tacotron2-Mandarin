@@ -66,7 +66,7 @@ if __name__ == '__main__':
     text = pinyin.get(text, format="numerical", delimiter=" ")
     print(text)
     sequence = np.array(text_to_sequence(text))[None, :]
-    sequence = torch.autograd.Variable(torch.from_numpy(sequence)).cuda().long()
+    sequence = torch.autograd.Variable(torch.from_numpy(sequence)).long()
 
     mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
     plot_data((mel_outputs.float().data.cpu().numpy()[0],
