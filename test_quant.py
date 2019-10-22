@@ -1,9 +1,37 @@
 import os
+import time
 
+import numpy as np
 import torch
 
+import config
 from models.models import Tacotron2
-from utils import HParams
+from utils import HParams, text_to_sequence
+
+
+class AverageMeter(object):
+    """Computes and stores the average and current value"""
+
+    def __init__(self, name, fmt=':f'):
+        self.name = name
+        self.fmt = fmt
+        self.reset()
+
+    def reset(self):
+        self.val = 0
+        self.avg = 0
+        self.sum = 0
+        self.count = 0
+
+    def update(self, val, n=1):
+        self.val = val
+        self.sum += val * n
+        self.count += n
+        self.avg = self.sum / self.count
+
+    def __str__(self):
+        fmtstr = '{name} {val' + self.fmt + '} ({avg' + self.fmt + '})'
+        return fmtstr.format(**self.__dict__)
 
 
 class bcolors:
@@ -15,6 +43,37 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+
+def evaluate(model, criterion, data_loader, neval_batches):
+    model.eval()
+    cnt = 0
+    elapsed = 0
+    filename = config.validation_files
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+
+    # Batches
+    with torch.no_grad():
+        for line in lines:
+            tokens = line.strip().split('|')
+            text = tokens[1]
+            sequence = np.array(text_to_sequence(text))[None, :]
+            sequence = torch.autograd.Variable(torch.from_numpy(sequence)).long()
+
+            start = time.time()
+            with torch.no_grad():
+                mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
+            end = time.time()
+            elapsed = elapsed + (end - start)
+            cnt += 1
+
+            print('.', end='')
+            if cnt >= neval_batches:
+                break
+
+    print('\nElapsed: {}{:.5f}{} sec'.format(bcolors.OKGREEN, elapsed, bcolors.ENDC))
+    return
 
 
 def print_size_of_model(model):
