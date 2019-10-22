@@ -6,7 +6,8 @@ import torch
 
 from config import sampling_rate
 from models.layers import STFT
-from utils import text_to_sequence, ensure_folder, plot_data
+from models.models import Tacotron2
+from utils import text_to_sequence, ensure_folder, plot_data, HParams
 
 
 class Denoiser(torch.nn.Module):
@@ -46,9 +47,12 @@ class Denoiser(torch.nn.Module):
 
 
 if __name__ == '__main__':
-    checkpoint = 'BEST_checkpoint.tar'
-    checkpoint = torch.load(checkpoint)
-    model = checkpoint['model']
+    config = HParams()
+    checkpoint = 'tacotron2-cn.pt'
+    print('loading model: {}...'.format(checkpoint))
+    model = Tacotron2(config)
+    model.load_state_dict(torch.load(checkpoint))
+    model = model.to('cpu')
     model.eval()
 
     waveglow_path = 'waveglow_256channels.pt'

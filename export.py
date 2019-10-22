@@ -13,7 +13,7 @@ if __name__ == '__main__':
     torch.save(model.state_dict(), 'tacotron2-cn.pt')
 
     config = HParams()
-    checkpoint = 'repo/tts-cn/tacotron2-cn.pt'
+    checkpoint = 'tacotron2-cn.pt'
     print('loading model: {}...'.format(checkpoint))
     model = Tacotron2(config)
     model.load_state_dict(torch.load(checkpoint))
