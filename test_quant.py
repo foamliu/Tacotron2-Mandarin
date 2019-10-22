@@ -54,22 +54,21 @@ def evaluate(model, neval_batches):
         lines = file.readlines()
 
     # Batches
-    with torch.no_grad():
-        for line in lines:
-            tokens = line.strip().split('|')
-            text = tokens[1]
-            sequence = np.array(text_to_sequence(text))[None, :]
-            sequence = torch.autograd.Variable(torch.from_numpy(sequence)).long()
+    for line in lines:
+        tokens = line.strip().split('|')
+        text = tokens[1]
+        sequence = np.array(text_to_sequence(text))[None, :]
+        sequence = torch.autograd.Variable(torch.from_numpy(sequence)).long()
 
-            start = time.time()
-            mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
-            end = time.time()
-            elapsed = elapsed + (end - start)
-            cnt += 1
+        start = time.time()
+        mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
+        end = time.time()
+        elapsed = elapsed + (end - start)
+        cnt += 1
 
-            print('.', end='')
-            if cnt >= neval_batches:
-                break
+        print('.', end='')
+        if cnt >= neval_batches:
+            break
 
     print('\nElapsed: {}{:.5f}{} sec'.format(bcolors.OKGREEN, elapsed, bcolors.ENDC))
     return
