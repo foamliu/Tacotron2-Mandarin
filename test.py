@@ -3,14 +3,17 @@ import time
 import torch
 from tqdm import tqdm
 
-import config
 from data_gen import TextMelLoader, TextMelCollate
-from utils import parse_args
+from models.models import Tacotron2
+from utils import parse_args, HParams
 
 if __name__ == '__main__':
-    checkpoint = 'BEST_checkpoint.tar'
-    checkpoint = torch.load(checkpoint)
-    model = checkpoint['model']
+    config = HParams()
+    checkpoint = 'tacotron2-cn.pt'
+    print('loading model: {}...'.format(checkpoint))
+    model = Tacotron2(config)
+    model.load_state_dict(torch.load(checkpoint))
+    model = model.to('cpu')
     model.eval()
 
     args = parse_args()
@@ -24,15 +27,18 @@ if __name__ == '__main__':
     num_samples = len(valid_dataset)
     print('num_samples: ' + str(num_samples))
 
-    start = time.time()
+    elapsed = 0
     # Batches
     for batch in tqdm(valid_loader):
         model.zero_grad()
         x, y = model.parse_batch(batch)
 
         # Forward prop.
+        start = time.time()
         y_pred = model(x)
+        end = time.time()
+        elapsed = elapsed + (end - start)
 
     elapsed = time.time() - start
 
-    print('{:.5f} seconds per sample'.format(elapsed / num_samples))
+    print('Elapsed: {:.5f} ms'.format(elapsed / num_samples * 1000))
