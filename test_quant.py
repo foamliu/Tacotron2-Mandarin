@@ -45,7 +45,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 
-def evaluate(model, criterion, data_loader, neval_batches):
+def evaluate(model, neval_batches):
     model.eval()
     cnt = 0
     elapsed = 0
@@ -90,12 +90,25 @@ def test():
     model = model.to('cpu')
     model.eval()
 
+    print(bcolors.HEADER + '\nPost-training static quantization' + bcolors.ENDC)
+    num_calibration_batches = 10
+
     model.qconfig = torch.quantization.default_qconfig
     print(model.qconfig)
     torch.quantization.prepare(model, inplace=True)
 
+    # Calibrate first
+    print('Post Training Quantization Prepare: Inserting Observers')
+    print('\n Inverted Residual Block:After observer insertion \n\n', model.features[1].conv)
+
+    # Calibrate with the training set
+    print('Calibrate with the training set')
+    evaluate(model, neval_batches=num_calibration_batches)
+    print('Post Training Quantization: Calibration done')
+
     # Convert to quantized model
     torch.quantization.convert(model, inplace=True)
+    print('Post Training Quantization: Convert done')
 
     print("Size of model after quantization")
     print_size_of_model(model)
