@@ -99,7 +99,6 @@ def test():
 
     # Calibrate first
     print('Post Training Quantization Prepare: Inserting Observers')
-    print('\n Inverted Residual Block:After observer insertion \n\n', model.features[1].conv)
 
     # Calibrate with the training set
     print('Calibrate with the training set')
