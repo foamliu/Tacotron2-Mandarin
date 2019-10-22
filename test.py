@@ -3,15 +3,15 @@ import time
 import torch
 from tqdm import tqdm
 
+import config
 from data_gen import TextMelLoader, TextMelCollate
 from models.models import Tacotron2
 from utils import parse_args, HParams
 
 if __name__ == '__main__':
-    config = HParams()
     checkpoint = 'tacotron2-cn.pt'
     print('loading model: {}...'.format(checkpoint))
-    model = Tacotron2(config)
+    model = Tacotron2(HParams())
     model.load_state_dict(torch.load(checkpoint))
     model = model.to('cpu')
     model.eval()
