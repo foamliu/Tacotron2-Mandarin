@@ -58,7 +58,7 @@ def evaluate(model, neval_batches):
         tokens = line.strip().split('|')
         text = tokens[1]
         sequence = np.array(text_to_sequence(text))[None, :]
-        sequence = torch.autograd.Variable(torch.from_numpy(sequence)).long()
+        sequence = torch.from_numpy(sequence).long()
 
         start = time.time()
         mel_outputs, mel_outputs_postnet, _, alignments = model.inference(sequence)
