@@ -37,3 +37,5 @@ $ python demo.py
 
 
 <a href="audios/sample.wav">audio sample</a>
+
+You can have a try at: http://47.101.196.204:8080/tts-cn
