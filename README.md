@@ -34,3 +34,6 @@ Generate mel-spectrogram for text "相对论直接和间接的催生了量子力
 $ python demo.py
 ```
 ![image](https://github.com/foamliu/Tacotron2-CN/raw/master/images/mel_spec.jpg)
+
+
+<a href="audios/001.mp3">audio sample</a>
