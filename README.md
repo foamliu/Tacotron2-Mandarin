@@ -36,4 +36,4 @@ $ python demo.py
 ![image](https://github.com/foamliu/Tacotron2-CN/raw/master/images/mel_spec.jpg)
 
 
-<a href="audios/001.mp3">audio sample</a>
+<a href="audios/sample.wav">audio sample</a>
