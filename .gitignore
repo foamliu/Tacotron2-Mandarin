@@ -7,3 +7,4 @@ runs/
 waveglow_256channels.pt
 nohup.out
 data
+.ipynb_checkpoints/
