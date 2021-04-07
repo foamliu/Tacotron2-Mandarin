@@ -166,7 +166,7 @@ def sequence_to_text(seq):
 def plot_data(data, figsize=(16, 4)):
     fig, axes = plt.subplots(1, len(data), figsize=figsize)
     for i in range(len(data)):
-        axes[i].imshow(data[i], aspect='auto', origin='bottom',
+        axes[i].imshow(data[i], aspect='auto', origin='lower',
                        interpolation='none')
 
 
